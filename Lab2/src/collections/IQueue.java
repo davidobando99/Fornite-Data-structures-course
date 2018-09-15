@@ -6,6 +6,10 @@ public interface IQueue<T> {
 	
 	public void enqueue(T newElem);
 	public void dequeue(T deleted);
-	
+	public void search(T searched);
+	public int size();
+	public boolean isEmpty();
+	public T getFront();
+	public T getBack();
 
 }

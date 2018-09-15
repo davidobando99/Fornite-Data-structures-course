@@ -1,26 +1,35 @@
 package mundo;
 
 import collections.IQueue;
+import collections.Queue;
 
-public class Fornite implements IQueue<Player>{
+public class Fornite{
 	
 	private Player player;
+//	private Queue<Player> queue;
+	private IQueue<Player> miQueue;
 
 	public Fornite() {
-		
+		miQueue= new Queue<Player>();
 	}
 
-	@Override
-	public void enqueue(Player newElem) {
+
+
+	
+	public int size() {
 		// TODO Auto-generated method stub
-		
+		return miQueue.size();
 	}
 
-	@Override
-	public void dequeue(Player deleted) {
-		// TODO Auto-generated method stub
-		
+
+	public static void main(String[] args) {
+		Fornite f = new Fornite();
+		System.out.println(f.size());
+	
 	}
+
+
+
 	
 	
 
