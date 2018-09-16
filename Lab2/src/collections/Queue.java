@@ -39,6 +39,13 @@ public class Queue<T> implements IQueue<T> {
 
 	@Override
 	public void enqueue(T newElem) {
+		
+		Node<T> n= new Node<T>(newElem); 
+		
+		if(front==null) {
+			front=n;
+		}
+		
 		// TODO Auto-generated method stub
 		
 	}

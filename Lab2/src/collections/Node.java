@@ -4,8 +4,10 @@ public class Node<T> {
 	
 	private Node<T> next;
 	private Node<T> previous;
+	private T value;
 	
-	public Node() {
+	public Node(T value) {
+		this.value=value;
 		
 	}
 	public Node<T> getNext() {
