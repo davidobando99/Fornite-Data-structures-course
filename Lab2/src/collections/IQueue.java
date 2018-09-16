@@ -9,7 +9,6 @@ public interface IQueue<T> {
 	public void search(T searched);
 	public int size();
 	public boolean isEmpty();
-	public T getFront();
-	public T getBack();
+	
 
 }

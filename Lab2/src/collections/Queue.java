@@ -1,16 +1,16 @@
 package collections;
 
 public class Queue<T> implements IQueue<T> {
-	
-	public int SIZE_ASS= 100;
+
+	public int SIZE_ASS = 100;
 	private int highRank;
 	private int lowRank;
 	private Node<T> front;
-	private Node<T>back;
-	
+	private Node<T> back;
+
 	public Queue() {
-		front=null;
-		back=null;
+		front = null;
+		back = null;
 	}
 
 	public int getHighRank() {
@@ -39,57 +39,89 @@ public class Queue<T> implements IQueue<T> {
 
 	@Override
 	public void enqueue(T newElem) {
-		
-		Node<T> n= new Node<T>(newElem); 
-		
-		if(front==null) {
-			front=n;
+
+		Node<T> n = new Node<T>(newElem);
+
+		if (front == null) {
+			front = n;
+		} else {
+
+			Node<T> tem = front;
+
+			while (tem.getNext() != null) {
+				tem = tem.getNext();
+			}
+			tem.setNext(n);
+			n.setPrevious(tem);
 		}
-		
-		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void dequeue(T deleted) {
-		// TODO Auto-generated method stub
-		
+
+		boolean found = false;
+		Node<T> n = new Node<T>(deleted);
+		if (front == n) {
+			front = front.getNext();
+		} else {
+
+			Node<T> tem = front.getNext();
+			while (!found && tem.getNext() != null) {
+
+				if (tem.equals(n)) {
+					found = true;
+
+					Node<T> node = tem.getPrevious();
+					node.setNext(tem.getNext());
+					node.getNext().setPrevious(node);
+
+				} else
+					tem = tem.getNext();
+
+			}
+
+		}
+
 	}
 
 	@Override
 	public void search(T searched) {
-		// TODO Auto-generated method stub
 		
+		
+		
+
 	}
 
 	@Override
 	public int size() {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		int amount=0;
+		if(front==null) {
+			return 0;
+		}
+		else {
+			 amount=1;
+			 Node<T> tem=front;
+			 while(tem.getNext()!=null) {
+				 amount++;
+				 tem=tem.getNext();
+			 }
+		}
+		
+		return amount;
 	}
 
 	@Override
 	public boolean isEmpty() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public T getFront() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public T getBack() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		if(front==null) {
+		return true;
+		}
+		else
+			return false;
 	}
 
 	
-
-
-	
-
 
 }
