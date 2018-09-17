@@ -44,10 +44,7 @@ public class Queue<T> implements IQueue<T> {
 		return front;
 	}
 
-	public Node<T> getBack() {
-		return back;
-	}
-
+	
 	@Override
 	public void enqueue(T newElem) {
 

@@ -4,19 +4,19 @@ import collections.IQueue;
 import collections.Node;
 import collections.Queue;
 
-public class Fornite implements IQueue<Player>{
+public class Fornite {
 	
 	private Player player;
-	private Queue<Player> miQueue;
-	//private IQueue<Player> miQueue;
+	private IQueue<Player> myQueue;
+	
 
 	public Fornite() {
-		miQueue= new Queue<Player>();
+		myQueue= new Queue<Player>();
 	}
 	
 	
-	public Queue<Player> getMiQueue() {
-		return miQueue;
+	public IQueue<Player> getMyQueue() {
+		return myQueue;
 	}
 	
 
@@ -31,39 +31,39 @@ public class Fornite implements IQueue<Player>{
 	}
 
 
-	public void setMiQueue(Queue<Player> miQueue) {
-		this.miQueue = miQueue;
+	public void setMyQueue(Queue<Player> miQueue) {
+		this.myQueue = miQueue;
 	}
 	
-	@Override
+	
 	public void dequeue() {
 		// TODO Auto-generated method stub
 		
 	}
 
 
-	@Override
+	
 	public void search(Player searched) {
 		// TODO Auto-generated method stub
 		
 	}
 
 
-	@Override
+	
 	public boolean isEmpty() {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 
-	@Override
+	
 	public void enqueue(Player newElem) {
-		miQueue.enqueue(newElem);
+		myQueue.enqueue(newElem);
 		
 	}
-	@Override
+	
 	public int size() {
-		return miQueue.size();
+		return myQueue.size();
 	}
 
 
@@ -71,10 +71,10 @@ public class Fornite implements IQueue<Player>{
 		Fornite f = new Fornite();
 		
 		Player uno= new Player("Huertas",80,"Sur",50,3107);
-//		Node<Player> n= new Node<Player>(uno);
+
 		f.enqueue(uno);
 		System.out.println(f.size());
-		System.out.println(f.getMiQueue().getFront().getValue().getName());
+		System.out.println(f.getMyQueue().getFront().getValue().getName());
 		
 	
 	
