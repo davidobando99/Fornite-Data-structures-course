@@ -10,6 +10,18 @@ public class Node<T> {
 		this.value=value;
 		
 	}
+	
+	
+	public T getValue() {
+		return value;
+	}
+
+
+	public void setValue(T value) {
+		this.value = value;
+	}
+
+
 	public Node<T> getNext() {
 		return next;
 	}

@@ -16,6 +16,7 @@ public class Queue<T> implements IQueue<T> {
 	public int getHighRank() {
 		return highRank;
 	}
+	
 
 	public void setHighRank(int highRank) {
 		this.highRank = highRank;
@@ -36,6 +37,16 @@ public class Queue<T> implements IQueue<T> {
 	public void setBack(Node<T> back) {
 		this.back = back;
 	}
+	
+	
+
+	public Node<T> getFront() {
+		return front;
+	}
+
+	public Node<T> getBack() {
+		return back;
+	}
 
 	@Override
 	public void enqueue(T newElem) {
@@ -44,7 +55,7 @@ public class Queue<T> implements IQueue<T> {
 
 		if (front == null) {
 			front = n;
-			back=null;
+			back=n;
 		} else {
 
 			Node<T> tem = front;
@@ -54,6 +65,7 @@ public class Queue<T> implements IQueue<T> {
 			}
 			tem.setPrevious(n);
 			n.setNext(tem);
+			back=n;
 		}
 
 	}
@@ -109,6 +121,8 @@ public class Queue<T> implements IQueue<T> {
 		else
 			return false;
 	}
+
+
 
 	
 
