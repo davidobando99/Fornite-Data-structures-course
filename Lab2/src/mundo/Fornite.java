@@ -1,5 +1,6 @@
 package mundo;
 
+import collections.IHashTable;
 import collections.IQueue;
 import collections.Node;
 import collections.Queue;
@@ -8,6 +9,9 @@ public class Fornite {
 	
 	private Player player;
 	private IQueue<Player> myQueue;
+	private IHashTable<Integer, Player> xboxTable;
+	private IHashTable<Integer, Player> phoneTable;
+	private IHashTable<Integer, Player> pcTable;
 	
 
 	public Fornite() {
@@ -19,6 +23,39 @@ public class Fornite {
 		return myQueue;
 	}
 	
+	public IHashTable<Integer, Player> getXboxTable() {
+		return xboxTable;
+	}
+
+
+	public void setXboxTable(IHashTable<Integer, Player> xboxTable) {
+		this.xboxTable = xboxTable;
+	}
+
+
+	public IHashTable<Integer, Player> getPhoneTable() {
+		return phoneTable;
+	}
+
+
+	public void setPhoneTable(IHashTable<Integer, Player> phoneTable) {
+		this.phoneTable = phoneTable;
+	}
+
+
+	public IHashTable<Integer, Player> getPcTable() {
+		return pcTable;
+	}
+
+
+	public void setPcTable(IHashTable<Integer, Player> pcTable) {
+		this.pcTable = pcTable;
+	}
+
+
+	public void setMyQueue(IQueue<Player> myQueue) {
+		this.myQueue = myQueue;
+	}
 
 
 	public Player getPlayer() {
@@ -64,6 +101,10 @@ public class Fornite {
 	
 	public int size() {
 		return myQueue.size();
+	}
+	
+	public void add(Player newElement, Integer key) {
+		
 	}
 
 
