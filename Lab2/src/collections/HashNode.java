@@ -5,11 +5,13 @@ public class HashNode<K, V> {
 	
     private K key;
     private V value;
+    private int hash;
    
 
-    public HashNode(K k, V v){
+    public HashNode(K k, V v, int hash){
         key = k;
         value = v;
+        this.hash=hash;
        
     }
 
@@ -29,6 +31,15 @@ public class HashNode<K, V> {
 		this.value = value;
 	}
 
+	public int getHash() {
+		return hash;
+	}
+
+	public void setHash(int hash) {
+		this.hash = hash;
+	}
+
+	
 	
 	
 

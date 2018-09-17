@@ -25,15 +25,15 @@ public class HashTable<K,V> implements IHashTable<K,V>{
 	@Override
 	public void add(V newElement, K key) {
 		int hash = getSlot(key, 1,1);
-		HashNode<K, V> node = new HashNode<K, V>(key, newElement);
+		HashNode<K, V> node = new HashNode<K, V>(key, newElement,hash);
 		
 		hashTable[hash] = node;
 	}
 	
 	@Override
 	public void remove(K key) {
-		// TODO Auto-generated method stub
 		
+	
 	}
 	@Override
 	public void search(K key) {
@@ -76,25 +76,40 @@ public class HashTable<K,V> implements IHashTable<K,V>{
 				hashFunction =quadratic;
 				}
 				slot= hashFunction;
-				
-				
 			}
 		return slot;
 	}
 	
+	
+	
 	public static void main(String[] args) {
 		HashTable<Integer, String> n= new HashTable<Integer, String>(7);
-		/**Integer key1 =36648;
+		
+		Integer key1 =36648;
 		Integer key2 =34745;
 		Integer key3 =13359;
+		Integer key4 =3;
 		System.out.println(n.getSlot(key1, 1, 1));
 		System.out.println(n.getSlot(key2, 1, 1));
-		System.out.println(n.getSlot(key3, 1, 1));*/
+		System.out.println(n.getSlot(key3, 1, 1));
+		System.out.println(n.getSlot(key4, 1, 1));
 		n.add("David", 36648);
 		n.add("Laura", 34745);
 		n.add("Douglas", 13359);
 		n.add("Huertas", 3);
 		
+		
+		for(int i=0; i<n.getHashTable().length;i++) {
+			if(n.getHashTable()[i]!=null){
+			System.out.println(n.getHashTable()[i].getValue()+" "+i);
+			
+			}
+		
+			
+		}
+		System.out.println(n.getSlot(3, 1, 1));
+		n.remove(3);
+		System.out.println("\nHUERTAS PA FUERA");
 		for(int i=0; i<n.getHashTable().length;i++) {
 			if(n.getHashTable()[i]!=null){
 			System.out.println(n.getHashTable()[i].getValue()+" "+i);
