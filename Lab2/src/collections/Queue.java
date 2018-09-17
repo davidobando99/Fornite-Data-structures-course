@@ -44,44 +44,32 @@ public class Queue<T> implements IQueue<T> {
 
 		if (front == null) {
 			front = n;
+			back=null;
 		} else {
 
 			Node<T> tem = front;
 
-			while (tem.getNext() != null) {
-				tem = tem.getNext();
+			while (tem.getPrevious() != null) {
+				tem = tem.getPrevious();
 			}
-			tem.setNext(n);
-			n.setPrevious(tem);
+			tem.setPrevious(n);
+			n.setNext(tem);
 		}
 
 	}
 
 	@Override
-	public void dequeue(T deleted) {
+	public void dequeue() {
 
-		boolean found = false;
-		Node<T> n = new Node<T>(deleted);
-		if (front == n) {
-			front = front.getNext();
-		} else {
-
-			Node<T> tem = front.getNext();
-			while (!found && tem.getNext() != null) {
-
-				if (tem.equals(n)) {
-					found = true;
-
-					Node<T> node = tem.getPrevious();
-					node.setNext(tem.getNext());
-					node.getNext().setPrevious(node);
-
-				} else
-					tem = tem.getNext();
-
-			}
-
+		if (front ==null) {
+			//excepción
+		} 
+		else {
+			front=front.getPrevious();
+			front.setNext(null);
 		}
+
+			
 
 	}
 
