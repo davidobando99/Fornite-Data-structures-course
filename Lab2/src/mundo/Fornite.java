@@ -100,19 +100,9 @@ public class Fornite {
 	}
 	
 	public void skillRanking(String platform) {
+		
 		int key=generateRandom();
-		if(platform.equals(Player.CONSOLE)) {
-			consoleTable.search(key);
-		}	else if(platform.equals(Player.PC)) {
-			pcTable.search(key);
-		}else {
-			phoneTable.search(key);
-		}
-		for(int i=0;i<1000000;i+=100) {
-			for(int j=0;j<200;j++) {
-			IQueue<Player> queue = new Queue<Player>(j,j+=30);
-		}
-		}
+		
 		
 		
 		
