@@ -36,9 +36,12 @@ public class HashTable<K,V> implements IHashTable<K,V>{
 	
 	}
 	@Override
-	public void search(K key) {
-		// TODO Auto-generated method stub
+	public HashNode<K,V> search(K key) {
 		
+		int slot=getSlot(key, 1, 1);
+		System.out.println(slot);
+		
+		return hashTable[slot];
 	}
 	@Override
 	public int size() {
@@ -66,16 +69,23 @@ public class HashTable<K,V> implements IHashTable<K,V>{
 		int slot=0;
 		int i=0;
 		int quadratic=0;
-		
+		int hash=hashFunction;
+		    
 			if(hashTable[hashFunction]==null) {
 				slot=hashFunction;
 			}else {
-				while(hashTable[hashFunction]!=null&&hashFunction<hashTable.length) {
+				boolean esta= false;
+				while(hashTable[hash]!=null&&!esta&&hash<hashTable.length) {
+					if(hashTable[hash].getKey().hashCode()==key.hashCode()) {
+						esta=true;
+					}
+					else {
 				i++;
 				quadratic=(int) ((hashFunction+ (c1*i)+(c2*(Math.pow(i, 2))))%hashTable.length);
-				hashFunction =quadratic;
+				hash =quadratic;
+					}
 				}
-				slot= hashFunction;
+				slot= hash;
 			}
 		return slot;
 	}
@@ -85,18 +95,12 @@ public class HashTable<K,V> implements IHashTable<K,V>{
 	public static void main(String[] args) {
 		HashTable<Integer, String> n= new HashTable<Integer, String>(7);
 		
-		Integer key1 =36648;
-		Integer key2 =34745;
-		Integer key3 =13359;
-		Integer key4 =3;
-		System.out.println(n.getSlot(key1, 1, 1));
-		System.out.println(n.getSlot(key2, 1, 1));
-		System.out.println(n.getSlot(key3, 1, 1));
-		System.out.println(n.getSlot(key4, 1, 1));
+
 		n.add("David", 36648);
 		n.add("Laura", 34745);
 		n.add("Douglas", 13359);
 		n.add("Huertas", 3);
+		n.add("kaka", 7);
 		
 		
 		for(int i=0; i<n.getHashTable().length;i++) {
@@ -107,15 +111,12 @@ public class HashTable<K,V> implements IHashTable<K,V>{
 		
 			
 		}
-		System.out.println(n.getSlot(3, 1, 1));
-		n.remove(3);
-		System.out.println("\nHUERTAS PA FUERA");
-		for(int i=0; i<n.getHashTable().length;i++) {
-			if(n.getHashTable()[i]!=null){
-			System.out.println(n.getHashTable()[i].getValue()+" "+i);
-			}
-			
+		
+		System.out.println("buscado  "+n.search(7).getValue());
+		
 		}
+		
+		
 	}
 	
 
@@ -124,4 +125,4 @@ public class HashTable<K,V> implements IHashTable<K,V>{
 	
 	
 
-}
+

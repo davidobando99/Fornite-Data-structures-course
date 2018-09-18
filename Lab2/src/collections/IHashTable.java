@@ -4,7 +4,7 @@ public interface IHashTable<K,V> {
 	
 	public void add(V newElement, K key);
 	public void remove(K key);
-	public void search(K key);
+	public  HashNode<K,V> search(K key);
 	public int size();
 	public boolean isEmpty();
 	public K getKey();

@@ -2,19 +2,24 @@ package mundo;
 
 public class Player {
 	
+	public static final String PC="PC";
+	public static final String CONSOLE="Console";
+	public static final String PHONE="Phone";
 	private String name;
 	private double ping;
 	private String geo;
 	private double skill;
 	private int id;
+	private String plataforma;
 	
-	public Player(String name, double ping, String geo, double skill, int id) {
+	public Player(String name, double ping, String geo, double skill, int id, String plataforma) {
 		
 		this.name=name;
 		this.ping=ping;
 		this.geo=geo;
 		this.skill=skill;
 		this.id=id;
+		this.plataforma=plataforma;
 		
 	}
 
@@ -57,6 +62,15 @@ public class Player {
 	public void setId(int id) {
 		this.id = id;
 	}
+
+	public String getPlataforma() {
+		return plataforma;
+	}
+
+	public void setPlataforma(String plataforma) {
+		this.plataforma = plataforma;
+	}
+	
 	
 	
 	
