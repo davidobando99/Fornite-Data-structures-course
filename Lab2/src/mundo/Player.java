@@ -10,16 +10,16 @@ public class Player {
 	private String geo;
 	private double skill;
 	private int id;
-	private String plataforma;
+	private String platform;
 	
-	public Player(String name, double ping, String geo, double skill, int id, String plataforma) {
+	public Player(String name, double ping, String geo, double skill, int id, String platform) {
 		
 		this.name=name;
 		this.ping=ping;
 		this.geo=geo;
 		this.skill=skill;
 		this.id=id;
-		this.plataforma=plataforma;
+		this.platform=platform;
 		
 	}
 
@@ -63,14 +63,14 @@ public class Player {
 		this.id = id;
 	}
 
-	public String getPlataforma() {
-		return plataforma;
+	public String getPlatform() {
+		return platform;
 	}
 
-	public void setPlataforma(String plataforma) {
-		this.plataforma = plataforma;
+	public void setPlatform(String platform) {
+		this.platform = platform;
 	}
-	
+
 	
 	
 	

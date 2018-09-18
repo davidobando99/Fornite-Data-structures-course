@@ -8,9 +8,11 @@ public class Queue<T> implements IQueue<T> {
 	private Node<T> front;
 	private Node<T> back;
 
-	public Queue() {
+	public Queue(int lowRank, int highRank) {
 		front = null;
 		back = null;
+		this.lowRank=lowRank;
+		this.highRank=highRank;
 	}
 
 	public int getHighRank() {

@@ -14,7 +14,7 @@ public class Fornite {
 	private IHashTable<Integer, Player> pcTable;
 
 	public Fornite() {
-		myQueue = new Queue<Player>();
+		myQueue = new Queue<Player>(0,100);
 	}
 
 	public IQueue<Player> getMyQueue() {
@@ -87,11 +87,11 @@ public class Fornite {
 
 	public void add(Player newElement, Integer key) {
 
-		if (newElement.getPlataforma().equals(Player.CONSOLE)) {
+		if (newElement.getPlatform().equals(Player.CONSOLE)) {
 
 			consoleTable.add(newElement, key);
 
-		} else if (newElement.getPlataforma().equals(Player.PC)) {
+		} else if (newElement.getPlatform().equals(Player.PC)) {
 			pcTable.add(newElement, key);
 		} else {
 			phoneTable.add(newElement, key);
@@ -99,7 +99,23 @@ public class Fornite {
 
 	}
 	
-	public void skillRanking() {
+	public void skillRanking(String platform) {
+		int key=generateRandom();
+		if(platform.equals(Player.CONSOLE)) {
+			consoleTable.search(key);
+		}	else if(platform.equals(Player.PC)) {
+			pcTable.search(key);
+		}else {
+			phoneTable.search(key);
+		}
+		for(int i=0;i<1000000;i+=100) {
+			for(int j=0;j<200;j++) {
+			IQueue<Player> queue = new Queue<Player>(j,j+=30);
+		}
+		}
+		
+		
+		
 		
 	
 		
@@ -107,7 +123,7 @@ public class Fornite {
 	}
 	public int generateRandom() {
 		
-		return (int)( Math.random()*100000 )+1;
+		return (int)( Math.random()*1000000 )+1;
 		
 		
 		

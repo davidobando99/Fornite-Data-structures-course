@@ -31,8 +31,10 @@ public class HashTable<K,V> implements IHashTable<K,V>{
 	}
 	
 	@Override
-	public void remove(K key) {
+	public void remove(V newElement, K key) {
+		int slot=getSlot(key, 1, 1);
 		
+		hashTable[slot]=null;
 	
 	}
 	@Override
@@ -45,24 +47,15 @@ public class HashTable<K,V> implements IHashTable<K,V>{
 	}
 	@Override
 	public int size() {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return hashTable.length;
 	}
 	@Override
 	public boolean isEmpty() {
-		// TODO Auto-generated method stub
+		
 		return false;
 	}
-	@Override
-	public K getKey() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	@Override
-	public V getValue() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 	@Override
 	public int getSlot(K key, int c1, int c2) {
 		int hashFunction = key.hashCode() % hashTable.length;
@@ -75,7 +68,7 @@ public class HashTable<K,V> implements IHashTable<K,V>{
 				slot=hashFunction;
 			}else {
 				boolean esta= false;
-				while(hashTable[hash]!=null&&!esta&&hash<hashTable.length) {
+				while((hashTable[hash]!=null)&&!esta&&hash<hashTable.length) {
 					if(hashTable[hash].getKey().hashCode()==key.hashCode()) {
 						esta=true;
 					}
