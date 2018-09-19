@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-public class StackTest<String> {
+public class StackTest {
  
 	private Stack<String> relation;
 	
