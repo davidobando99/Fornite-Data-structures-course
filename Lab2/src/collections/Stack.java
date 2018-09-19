@@ -2,57 +2,107 @@ package collections;
 
 public class Stack<S> implements IStack<S> {
 
-	
-	//**********************
+	// **********************
 	// Relations
-	//**********************
+	// **********************
 	private Node<S> last;
-	
+
 	/**
-	 * Constructor of this class. 
+	 * Constructor of this class.
 	 */
 	public Stack() {
 		last = null;
 	}
 
 	@Override
+	/**
+	 * insert an element to the stack.
+	 */
 	public void push(S newElement) {
-		// TODO Auto-generated method stub
-		
+
+		Node<S> newElement2 = new Node<S>(newElement);
+		if (last == null) {
+			last = newElement2;
+		} else {
+			Node<S> actual = new Node<S>(newElement);
+			while (actual.getNext() != null) {
+				actual = actual.getNext();
+			}
+			actual.setNext(actual);
+		}
+
 	}
 
 	@Override
+	/**
+	 * Remove first element of the stack.
+	 */
 	public void pop() {
-		// TODO Auto-generated method stub
-		
+
+		if (last == null) {
+			last = null;
+		} else if (last != null && last.getNext() == null) {
+			last = null;
+		} else {
+			Node<S> actual = last.getNext();
+			last = null;
+			last = actual;
+		}
+
 	}
 
 	@Override
+	/**
+	 * gets the first element in the stack.
+	 */
 	public S top() {
-		// TODO Auto-generated method stub
-		return null;
+		return last.getValue();
 	}
 
 	@Override
+	/**
+	 * check if the stack is empty.
+	 */
 	public boolean isEmpty() {
-		// TODO Auto-generated method stub
-		return false;
+		return (last == null) ? true : false;
 	}
 
 	@Override
-	public S search(S newElement) {
-		// TODO Auto-generated method stub
-		return null;
+	/**
+	 * Analyze if exists an element given in the stack.
+	 */
+	public boolean search(S newElement) {
+		Node<S> actual = last;
+		boolean wasFound = false;
+
+		while (actual != null) {
+			if (actual.getValue() == newElement) {
+				actual = last.getNext();
+				wasFound = true;
+			}
+		}
+		
+		return wasFound;
 	}
 
 	@Override
+	/**
+	 * Returns the size of the stack.
+	 */
 	public int size() {
-		// TODO Auto-generated method stub
-		return 0;
+		int contador = 0; 
+		Node<S> actual = last;
+		
+		while(actual != null) {
+			contador++;
+			actual = actual.getNext();
+		}
+		
+		return contador;
 	}
-	
-	//************************
-	//METHODS GET AND SETTERS
-	//************************
+
+	// ************************
+	// METHODS GET AND SETTERS
+	// ************************
 
 }

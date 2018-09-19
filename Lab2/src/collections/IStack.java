@@ -12,7 +12,7 @@ public interface IStack<S>{
 	public void pop();
 	public S top(); 
 	public boolean isEmpty();
-	public S search(S newElement);
+	public boolean search(S newElement);
 	public int size();
 	
 }
