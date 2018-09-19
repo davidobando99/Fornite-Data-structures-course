@@ -1,5 +1,7 @@
 package mundo;
 
+import collections.HashNode;
+import collections.HashTable;
 import collections.IHashTable;
 import collections.IQueue;
 import collections.Node;
@@ -7,14 +9,19 @@ import collections.Queue;
 
 public class Fornite {
 
-	private Player player;
+	
 	private IQueue<Player> myQueue;
 	private IHashTable<Integer, Player> consoleTable;
 	private IHashTable<Integer, Player> phoneTable;
 	private IHashTable<Integer, Player> pcTable;
+	
 
 	public Fornite() {
-		myQueue = new Queue<Player>(0,100);
+		myQueue = new Queue<Player>();
+		consoleTable = new HashTable<Integer, Player>();
+		phoneTable = new HashTable<Integer, Player>();
+		pcTable = new HashTable<Integer, Player>();
+		
 	}
 
 	public IQueue<Player> getMyQueue() {
@@ -49,31 +56,20 @@ public class Fornite {
 		this.myQueue = myQueue;
 	}
 
-	public Player getPlayer() {
-		return player;
-	}
-
-	public void setPlayer(Player player) {
-		this.player = player;
-	}
 
 	public void setMyQueue(Queue<Player> miQueue) {
 		this.myQueue = miQueue;
 	}
 
 	public void dequeue() {
-		// TODO Auto-generated method stub
+		myQueue.dequeue();
 
 	}
 
-	public void search(Player searched) {
-		// TODO Auto-generated method stub
+	
 
-	}
-
-	public boolean isEmpty() {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean isQueueEmpty() {
+		return myQueue.isEmpty();
 	}
 
 	public void enqueue(Player newElem) {
@@ -81,11 +77,13 @@ public class Fornite {
 
 	}
 
-	public int size() {
+	public int sizeQueue() {
+		System.out.println(myQueue.size());
 		return myQueue.size();
 	}
+	
 
-	public void add(Player newElement, Integer key) {
+	public void addTable(Player newElement, Integer key) {
 
 		if (newElement.getPlatform().equals(Player.CONSOLE)) {
 
@@ -98,34 +96,33 @@ public class Fornite {
 		}
 
 	}
-	
-	public void skillRanking(String platform) {
-		
-		int key=generateRandom();
-		
-		
-		
-		
-		
-	
-		
-		
+	public HashNode<Integer, Player> searchTable(IHashTable<Integer, Player> myHash, Integer key) {
+		return myHash.search(key);
 	}
+	
+	public void skillRanking(HashTable<Integer, Player> myHash) {
+		int key=generateRandom();
+		HashNode<Integer,Player> player = searchTable(myHash,key);
+		myQueue.enqueue(player.getValue());
+		
+		
+	
+	}
+	
 	public int generateRandom() {
 		
 		return (int)( Math.random()*1000000 )+1;
-		
-		
-		
 	}
 
 	public static void main(String[] args) {
 		Fornite f = new Fornite();
 
 		Player uno = new Player("Huertas", 80, "Sur", 50, 3107, "cp");
-
+		Player dos = new Player("Huertas", 80, "Sur", 50, 3107, "cp");
+      
 		f.enqueue(uno);
-		System.out.println(f.size());
+		f.enqueue(dos);
+		System.out.println(f.sizeQueue());
 		System.out.println(f.getMyQueue().getFront().getValue().getName());
 
 	}

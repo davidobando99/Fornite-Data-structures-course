@@ -7,21 +7,36 @@ public class HashTable<K,V> implements IHashTable<K,V>{
 	
     public static final int AMOUNT= 1000;
 	private HashNode<K,V>[] hashTable;
+	private int sizeTable;
 	
 	
-	public HashTable(int size){
-		hashTable = new HashNode[size];
+	public HashTable(){
+		hashTable = new HashNode[sizeTable];
 		
     }
+	
+	@Override
 	public HashNode<K,V>[] getHashTable() {
 		return hashTable;
 	}
-
+	
+	@Override
 	public void setHashTable(HashNode<K,V>[] hashTable) {
 		this.hashTable = hashTable;
 	}
 	
 	
+	@Override
+	public int getSizeTable() {
+		return sizeTable;
+	}
+
+	@Override
+	public void setSizeTable(int sizeTable) {
+		this.sizeTable = sizeTable;
+	}
+
+
 	@Override
 	public void add(V newElement, K key) {
 		int hash = getSlot(key, 1,1);
@@ -86,7 +101,8 @@ public class HashTable<K,V> implements IHashTable<K,V>{
 	
 	
 	public static void main(String[] args) {
-		HashTable<Integer, String> n= new HashTable<Integer, String>(7);
+		HashTable<Integer, String> n= new HashTable<Integer, String>();
+		
 		
 
 		n.add("David", 36648);

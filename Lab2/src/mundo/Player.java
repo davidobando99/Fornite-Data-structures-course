@@ -6,13 +6,13 @@ public class Player {
 	public static final String CONSOLE="Console";
 	public static final String PHONE="Phone";
 	private String name;
-	private double ping;
+	private int ping;
 	private String geo;
-	private double skill;
+	private int skill;
 	private int id;
 	private String platform;
 	
-	public Player(String name, double ping, String geo, double skill, int id, String platform) {
+	public Player(String name, int ping, String geo, int skill, int id, String platform) {
 		
 		this.name=name;
 		this.ping=ping;
@@ -31,11 +31,11 @@ public class Player {
 		this.name = name;
 	}
 
-	public double getPing() {
+	public int getPing() {
 		return ping;
 	}
 
-	public void setPing(double ping) {
+	public void setPing(int ping) {
 		this.ping = ping;
 	}
 
@@ -47,11 +47,11 @@ public class Player {
 		this.geo = geo;
 	}
 
-	public double getSkill() {
+	public int getSkill() {
 		return skill;
 	}
 
-	public void setSkill(double skill) {
+	public void setSkill(int skill) {
 		this.skill = skill;
 	}
 

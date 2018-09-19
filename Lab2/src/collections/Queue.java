@@ -3,47 +3,34 @@ package collections;
 public class Queue<T> implements IQueue<T> {
 
 	public int SIZE_ASS = 100;
-	private int highRank;
-	private int lowRank;
 	private Node<T> front;
 	private Node<T> back;
 
-	public Queue(int lowRank, int highRank) {
+	public Queue() {
 		front = null;
 		back = null;
-		this.lowRank=lowRank;
-		this.highRank=highRank;
+
 	}
 
-	public int getHighRank() {
-		return highRank;
-	}
-	
-
-	public void setHighRank(int highRank) {
-		this.highRank = highRank;
-	}
-
-	public int getLowRank() {
-		return lowRank;
-	}
-
-	public void setLowRank(int lowRank) {
-		this.lowRank = lowRank;
-	}
-
+	@Override
 	public void setFront(Node<T> front) {
 		this.front = front;
 	}
-
+    
+	@Override
 	public void setBack(Node<T> back) {
 		this.back = back;
 	}
 	
 	
-
+	@Override
 	public Node<T> getFront() {
 		return front;
+	}
+	@Override
+	public Node<T> getBack() {
+		
+		return back;
 	}
 
 	
@@ -102,9 +89,9 @@ public class Queue<T> implements IQueue<T> {
 		else {
 			 amount=1;
 			 Node<T> tem=front;
-			 while(tem.getNext()!=null) {
+			 while(tem.getPrevious()!=null) {
 				 amount++;
-				 tem=tem.getNext();
+				 tem=tem.getPrevious();
 			 }
 		}
 		
@@ -120,6 +107,8 @@ public class Queue<T> implements IQueue<T> {
 		else
 			return false;
 	}
+
+
 
 
 
