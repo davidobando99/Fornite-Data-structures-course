@@ -1,5 +1,7 @@
 package mundo;
 
+import collections.Stack;
+
 public class Player {
 	
 	public static final String PC="PC";
@@ -11,8 +13,9 @@ public class Player {
 	private int skill;
 	private int id;
 	private String platform;
+	private Stack<Weapon> weaponStack;
 	
-	public Player(String name, int ping, String geo, int skill, int id, String platform) {
+	public Player(String name, int ping, String geo, int skill, int id, String platform,Stack<Weapon> weaponStack ) {
 		
 		this.name=name;
 		this.ping=ping;
@@ -20,6 +23,7 @@ public class Player {
 		this.skill=skill;
 		this.id=id;
 		this.platform=platform;
+		this.weaponStack=weaponStack;
 		
 	}
 
@@ -70,6 +74,16 @@ public class Player {
 	public void setPlatform(String platform) {
 		this.platform = platform;
 	}
+
+	public Stack<Weapon> getWeaponStack() {
+		return weaponStack;
+	}
+
+	public void setWeaponStack(Stack<Weapon> weaponStack) {
+		this.weaponStack = weaponStack;
+	}
+	
+	
 
 	
 	

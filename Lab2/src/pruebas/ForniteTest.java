@@ -16,8 +16,8 @@ class ForniteTest {
 	
 	public void setUp() {
 		fornite= new Fornite();
-		player1= new Player("David", 101, "norte",256, 233445, "PC" );
-		player2= new Player("Douglas", 188, "sur",432, 134322, "PC" );
+		player1= new Player("David", 101, "norte",256, 233445, "PC" ,null);
+		player2= new Player("Douglas", 188, "sur",432, 134322, "PC", null);
 		
 		
 	}

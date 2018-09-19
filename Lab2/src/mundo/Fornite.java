@@ -116,9 +116,8 @@ public class Fornite {
 
 	public static void main(String[] args) {
 		Fornite f = new Fornite();
-
-		Player uno = new Player("Huertas", 80, "Sur", 50, 3107, "cp");
-		Player dos = new Player("Huertas", 80, "Sur", 50, 3107, "cp");
+		Player uno = new Player("Huertas", 80, "Sur", 50, 3107, "cp",null);
+		Player dos = new Player("Huertas", 80, "Sur", 50, 3107, "cp",null);
       
 		f.enqueue(uno);
 		f.enqueue(dos);
