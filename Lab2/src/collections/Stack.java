@@ -24,11 +24,14 @@ public class Stack<S> implements IStack<S> {
 		if (last == null) {
 			last = newElement2;
 		} else {
-			Node<S> actual = new Node<S>(newElement);
-			while (actual.getNext() != null) {
-				actual = actual.getNext();
+			Node<S> actual = last;
+			if (last.getNext() == null) {
+				last = newElement2;
+				last.setNext(actual);
+			} else {
+				last = newElement2;
+				last.setNext(actual);
 			}
-			actual.setNext(actual);
 		}
 
 	}
@@ -81,7 +84,7 @@ public class Stack<S> implements IStack<S> {
 				wasFound = true;
 			}
 		}
-		
+
 		return wasFound;
 	}
 
@@ -90,19 +93,26 @@ public class Stack<S> implements IStack<S> {
 	 * Returns the size of the stack.
 	 */
 	public int size() {
-		int contador = 0; 
+		int contador = 0;
 		Node<S> actual = last;
-		
-		while(actual != null) {
+
+		while (actual != null) {
 			contador++;
 			actual = actual.getNext();
 		}
-		
+
 		return contador;
 	}
 
 	// ************************
 	// METHODS GET AND SETTERS
 	// ************************
+	public Node<S> getLast() {
+		return last;
+	}
+
+	public void setLast(Node<S> last) {
+		this.last = last;
+	}
 
 }
