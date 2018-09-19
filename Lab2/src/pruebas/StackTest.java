@@ -83,7 +83,7 @@ public class StackTest {
 	@Test
 	public void testSize() {
 		
-		 int contador = 3;
+		 int accountant = 3;
 		 
 		 String abc = "Hola";
 	     relation.push(abc);
@@ -96,7 +96,7 @@ public class StackTest {
 	     
 	     int actual = relation.size();
 	     
-	     assertEquals(contador, actual);
+	     assertEquals(accountant, actual);
 		
 	}
 	

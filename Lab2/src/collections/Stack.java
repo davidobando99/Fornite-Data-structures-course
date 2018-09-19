@@ -93,15 +93,15 @@ public class Stack<S> implements IStack<S> {
 	 * Returns the size of the stack.
 	 */
 	public int size() {
-		int contador = 0;
+		int accountant = 0;
 		Node<S> actual = last;
 
 		while (actual != null) {
-			contador++;
+			accountant++;
 			actual = actual.getNext();
 		}
 
-		return contador;
+		return accountant;
 	}
 
 	// ************************
