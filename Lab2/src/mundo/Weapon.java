@@ -45,8 +45,6 @@ public class Weapon {
 		return type;
 	}
 
-	public void setType(String type) {
-		this.type = type;
-	}
+
 	
 }
