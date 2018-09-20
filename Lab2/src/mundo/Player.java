@@ -7,9 +7,17 @@ import collections.Stack;
 
 public class Player {
 	
+	//****************************
+	//         CONSTANTS
+	//***************************
 	public static final String PC="PC";
 	public static final String CONSOLE="Console";
 	public static final String PHONE="Phone";
+	
+	//**************************
+	// ATTRIBUTES
+	//**************************
+	
 	private String name;
 	private int ping;
 	private String geo;
@@ -18,6 +26,16 @@ public class Player {
 	private String platform;
 	private Stack<Weapon> weaponStack;
 	
+	/**
+	 * Constructor method of the Player class.
+	 * @param name
+	 * @param ping
+	 * @param geo
+	 * @param skill
+	 * @param id
+	 * @param platform
+	 * @param weaponStack
+	 */
 	public Player(String name, int ping, String geo, int skill, int id, String platform,Stack<Weapon> weaponStack ) {
 		
 		this.name=name;
@@ -29,7 +47,15 @@ public class Player {
 		this.weaponStack=weaponStack;
 		
 	}
-
+	
+	//**************************
+	// METHODS GETS AND SETTERS
+	//**************************
+    
+	/**
+	 * 
+	 * @return name
+	 */
 	public String getName() {
 		return name;
 	}
