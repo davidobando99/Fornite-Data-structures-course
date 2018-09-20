@@ -1,5 +1,7 @@
 package mundo;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 import collections.HashNode;
 import collections.HashTable;
 import collections.IHashTable;
@@ -100,18 +102,140 @@ public class Fornite {
 		return myHash.search(key);
 	}
 	
-	public void skillRanking(HashTable<Integer, Player> myHash) {
-		int key=generateRandom();
-		HashNode<Integer,Player> player = searchTable(myHash,key);
-		myQueue.enqueue(player.getValue());
+//	public void skillRanking(HashTable<Integer, Player> myHash) {
+////		int key=generateRandom();
+//		HashNode<Integer,Player> player = searchTable(myHash,key);
+//		myQueue.enqueue(player.getValue());
+//		
+//		
+//	
+//	}
+	public void addFirstPlayer(HashTable<Integer, Player> hashTable) {
+		int key=generateRandom(1, 1000000);
+		Player player= null;
+		boolean cond=false;
 		
+		while(!cond) {
+			if(hashTable.getHashTable()[key]!=null) {
+				
+				if(hashTable.getHashTable()[key].getValue().getSkill()>5) {
+					cond=true;
+					player=hashTable.getHashTable()[key].getValue();
+				}
+				
+			}
+			else
+				key= generateRandom(1, 1000000);
+		}
+		addLowerLevel(player, hashTable);
 		
-	
 	}
 	
-	public int generateRandom() {
+	public void addLowerLevel( Player medium, HashTable<Integer, Player> hashTable) {
 		
-		return (int)( Math.random()*1000000 )+1;
+		int x= 50;
+		int conta = 0;
+		Player n=null;
+		
+		if(medium.getSkill()<= 50) {
+			x= newSkillLow(medium.getSkill());
+		}
+		int key= generateRandom(medium.getSkill()-x, medium.getSkill());
+		
+		while(conta<=50) {
+			 n= newPlayerHash(key, medium.getSkill()-x, medium.getSkill(), hashTable);
+			myQueue.enqueue(n);
+			conta++;
+		}
+		addHighLevel(n, hashTable);
+		
+	}
+	
+	public void addHighLevel(Player medium, HashTable<Integer, Player>hashTable) {
+		
+		int x=50;
+		int conta=0;
+
+		if(medium.getSkill() + 50 >=500) {
+			
+			x=newSkillHigh(medium.getSkill());
+		}
+		int key=generateRandom(medium.getSkill(), medium.getSkill()+x);
+		
+		while(conta<=50) {
+			Player n=newPlayerHash(key, medium.getSkill(), medium.getSkill()+x, hashTable);
+			
+			myQueue.enqueue(n);
+			conta++;
+		}
+		
+			
+		
+		
+	}
+	
+	public int newSkillHigh(int num) {
+		
+		int high= 50;
+		
+		while(num + high>500) {
+			high-=5;
+		}
+		return high;
+	}
+	
+	public Player newPlayerHash(int key, int min, int max, HashTable<Integer, Player> hashTable) {
+		boolean n= false;
+		Player player=null;
+		
+		while(!n) {
+			key = generateRandom(min, max);
+			 player= hashTable.getHashTable()[key].getValue();
+			
+			if(player!=null && player.getSkill()>=min && player.getSkill()<=max) {
+				n=true;
+			}
+		}
+		return player;
+	}
+	
+	public int newSkillLow( int num) {
+		int low=50;
+		
+		while(num-low<=0) {
+			low-=5;
+		}
+		return low;
+	}
+	public HashTable<Integer,Player> mostrarTabla() {
+		
+		boolean e=false;
+		HashTable<Integer, Player> n= new HashTable<>();
+		int key=generateRandom(1, 1000000);
+		while(!e) {
+			
+			if(phoneTable.getHashTable()[key]!=null ) {
+				e=true;	
+				n.setHashTable(phoneTable.getHashTable());
+				
+			}
+			else if( pcTable.getHashTable()[key]!=null){
+				e=true;	
+				n.setHashTable(pcTable.getHashTable());
+			}
+			else if(consoleTable.getHashTable()[key]!=null) {
+				e=true;	
+				n.setHashTable(consoleTable.getHashTable());
+			}
+		}
+		return n;
+		
+	}
+	
+	
+	public int generateRandom(int min, int max) {
+		
+		return ThreadLocalRandom.current().nextInt(min,max);
 	}
 
 	public static void main(String[] args) {
@@ -123,6 +247,8 @@ public class Fornite {
 		f.enqueue(dos);
 		System.out.println(f.sizeQueue());
 		System.out.println(f.getMyQueue().getFront().getValue().getName());
+		
+		System.out.println("Central"+f.generateRandom(1, 5));
 
 	}
 
