@@ -25,7 +25,7 @@
                      <children>
                         <ListView fx:id="listCell" layoutX="303.0" layoutY="12.0" prefHeight="347.0" prefWidth="290.0" />
                         <ScrollBar fx:id="scrCell" layoutX="577.0" layoutY="12.0" orientation="VERTICAL" prefHeight="340.0" prefWidth="15.0" />
-                        <ToggleButton fx:id="butStartCell" layoutX="69.0" layoutY="261.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="179.0" text="Iniciar Partida" textAlignment="CENTER">
+                        <ToggleButton fx:id="butStartCell" layoutX="69.0" layoutY="261.0" mnemonicParsing="false" onAction="#actionButCell" prefHeight="58.0" prefWidth="179.0" text="Iniciar Partida" textAlignment="CENTER">
                            <font>
                               <Font name="Bauhaus 93" size="19.0" />
                            </font>
@@ -40,7 +40,7 @@
                      <children>
                         <ListView fx:id="listPC" layoutX="301.0" layoutY="11.0" prefHeight="347.0" prefWidth="290.0" />
                         <ScrollBar fx:id="scrPC" layoutX="577.0" layoutY="11.0" orientation="VERTICAL" prefHeight="347.0" prefWidth="14.0" />
-                        <ToggleButton fx:id="butStartPC" layoutX="70.0" layoutY="262.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="179.0" text="Iniciar Partida">
+                        <ToggleButton fx:id="butStartPC" layoutX="70.0" layoutY="262.0" mnemonicParsing="false" onAction="#actionButPC" prefHeight="58.0" prefWidth="179.0" text="Iniciar Partida">
                            <font>
                               <Font name="Bauhaus 93" size="19.0" />
                            </font>
@@ -55,7 +55,7 @@
                      <children>
                         <ListView fx:id="listConsole" layoutX="303.0" layoutY="12.0" prefHeight="347.0" prefWidth="290.0" />
                         <ScrollBar fx:id="scrConsole" layoutX="578.0" layoutY="12.0" orientation="VERTICAL" prefHeight="347.0" prefWidth="14.0" />
-                        <ToggleButton fx:id="butStartConsole" layoutX="68.0" layoutY="264.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="179.0" text="Iniciar Partida">
+                        <ToggleButton fx:id="butStartConsole" layoutX="68.0" layoutY="264.0" mnemonicParsing="false" onAction="#actionButConsole" prefHeight="58.0" prefWidth="179.0" text="Iniciar Partida">
                            <font>
                               <Font name="Bauhaus 93" size="19.0" />
                            </font>

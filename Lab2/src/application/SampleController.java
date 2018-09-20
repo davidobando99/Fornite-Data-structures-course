@@ -1,5 +1,7 @@
 package application;
+import mundo.*;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.control.ScrollBar;
@@ -9,8 +11,14 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
+ 
+
 public class SampleController {
 
+	//Relation model
+	private Fornite fr;
+	
+	
     @FXML
     private AnchorPane anchorPrincipal;
 
@@ -42,7 +50,7 @@ public class SampleController {
     private AnchorPane anchorPanePC;
 
     @FXML
-    private ListView<?> listPC;
+    private ListView<Player> listPC;
 
     @FXML
     private ScrollBar scrPC;
@@ -57,7 +65,7 @@ public class SampleController {
     private AnchorPane anchorPaneConsole;
 
     @FXML
-    private ListView<?> listConsole;
+    private ListView<Player> listConsole;
 
     @FXML
     private ScrollBar scrConsole;
@@ -73,5 +81,27 @@ public class SampleController {
 
     @FXML
     private ImageView imgSanValentin;
+    
+    public void initialize() { 	
+    	fr = new Fornite(); 	
+    }
+    
+    @FXML
+    void actionButCell(ActionEvent event) {
+         
+    }
+
+    @FXML
+    void actionButConsole(ActionEvent event) {
+
+    }
+
+    @FXML
+    void actionButPC(ActionEvent event) {
+
+    }
+    
+    
+    
 
 }

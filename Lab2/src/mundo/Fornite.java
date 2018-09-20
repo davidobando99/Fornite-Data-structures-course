@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
 
 import collections.HashNode;
@@ -305,6 +306,19 @@ public class Fornite {
 			e.printStackTrace();
 		}
 
+	}
+	
+	public ArrayList<Player> listPlayers(){
+		
+		ArrayList<Player> py = new ArrayList<Player>();
+		
+		while(myQueue.getFront() != null) {
+			Player aux = myQueue.getFront().getValue();
+			py.add(aux);
+			myQueue.dequeue();
+		}
+		
+		return py;
 	}
 
 	public static void main(String[] args) {
