@@ -98,25 +98,25 @@ public class Fornite {
 	}
 
 	public int sizeQueue() {
-		// System.out.println(myQueue.size());
+		
 		return myQueue.size();
 	}
 
 	public void addTable(Player newElement, Integer key) {
 
-		System.out.println("eee");
+		
 
 		if (newElement.getPlatform().equals(Player.CONSOLE)) {
 
 			consoleTable.add(newElement, key);
-			System.out.println("Console");
+		
 
 		} else if (newElement.getPlatform().equals(Player.PC)) {
 			pcTable.add(newElement, key);
-			System.out.println("pc");
+			
 		} else {
 			phoneTable.add(newElement, key);
-			System.out.println("phone");
+			
 		}
 
 	}
@@ -238,16 +238,16 @@ public class Fornite {
 			try {
 				if (phoneTable.getHashTable()[key] != null) {
 					e = true;
-					System.out.println("phone");
+					
 					n.setHashTable(phoneTable.getHashTable());
 
 				} else if (pcTable.getHashTable()[key] != null) {
 					e = true;
-					System.out.println("pc");
+					
 					n.setHashTable(pcTable.getHashTable());
 				} else if (consoleTable.getHashTable()[key] != null) {
 					e = true;
-					System.out.println("console");
+					
 					n.setHashTable(consoleTable.getHashTable());
 				}
 			} catch (Exception e1) {
@@ -289,11 +289,10 @@ public class Fornite {
 				id = Integer.parseInt(array[2]);
 				geo = array[3];
 				platform = array[4];
-				// System.out.println(array[5]+"****");
 				skill = Integer.parseInt(array[5]);
 
 				Player newPlayer = new Player(name, ping, geo, skill, id, platform, stack);
-				System.out.println(newPlayer.getSkill());
+				addTable(newPlayer, newPlayer.getId());
 
 			}
 			buffer.close();
@@ -308,19 +307,8 @@ public class Fornite {
 
 	public static void main(String[] args) {
 		Fornite f = new Fornite();
-		Player uno = new Player("Huertas", 80, "Sur", 50, 3107, "cp", null);
-		Player dos = new Player("Huertas", 80, "Sur", 50, 3107, "cp", null);
-
-		f.enqueue(uno);
-		f.enqueue(dos);
-		System.out.println(f.sizeQueue());
-		System.out.println(f.getMyQueue().getFront().getValue().getName());
-
-		// IHashTable<Integer, Player> hashTable= f.mostrarTabla();
-
-		// System.out.println("Size: "+hashTable.getSizeTable());
-
 		f.readPlayers();
+		System.out.println(f.searchTable(f.getConsoleTable(), 610997).getName());
 
 	}
 

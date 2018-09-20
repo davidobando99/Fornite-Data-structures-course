@@ -59,7 +59,7 @@ public class HashTable<K,V> implements IHashTable<K,V>{
 	public HashNode<K,V> search(K key) {
 		
 		int slot=getSlot(key, 1, 1);
-		System.out.println(slot);
+		
 		
 		return hashTable[slot];
 	}
@@ -77,7 +77,7 @@ public class HashTable<K,V> implements IHashTable<K,V>{
 	@Override
 	public int getSlot(K key, int c1, int c2) {
 		
-		System.out.println("length " +hashTable.length);
+		
 		int hashFunction = key.hashCode() % hashTable.length;
 		int slot=0;
 		int i=0;
@@ -105,30 +105,30 @@ public class HashTable<K,V> implements IHashTable<K,V>{
 	
 	
 	
-	public static void main(String[] args) {
-		IHashTable<Integer, String> n= new HashTable<Integer, String>(1);
-		n.setSizeTable(7);
-		System.out.println(n.getHashTable().length);
-
-		n.add("David", 36648);
-		n.add("Laura", 34745);
-		n.add("Douglas", 13359);
-		n.add("Huertas", 3);
-		n.add("kaka", 7);
-		
-		
-		for(int i=0; i<n.getHashTable().length;i++) {
-			if(n.getHashTable()[i]!=null){
-			System.out.println(n.getHashTable()[i].getValue()+" "+i);
-			
-			}
-		
-			
-		}
-		
-		System.out.println("buscado  "+n.search(7).getValue());
-		
-		}
+//	public static void main(String[] args) {
+//		IHashTable<Integer, String> n= new HashTable<Integer, String>(1);
+//		n.setSizeTable(7);
+//		
+//
+//		n.add("David", 36648);
+//		n.add("Laura", 34745);
+//		n.add("Douglas", 13359);
+//		n.add("Huertas", 3);
+//		n.add("kaka", 7);
+//		
+//		
+//		for(int i=0; i<n.getHashTable().length;i++) {
+//			if(n.getHashTable()[i]!=null){
+//			System.out.println(n.getHashTable()[i].getValue()+" "+i);
+//			
+//			}
+//		
+//			
+//		}
+//		
+//		System.out.println("buscado  "+n.search(7).getValue());
+//		
+//		}
 		
 		
 	}
