@@ -9,7 +9,7 @@ public class Weapon {
 	private double power;
 	private String type;
 	
-	public Weapon(String image, String name, double power, String type) {
+	public Weapon( String name,String image, double power, String type) {
 		this.image= image;
 		this.name=name;
 		this.power=power;
@@ -45,6 +45,11 @@ public class Weapon {
 		return type;
 	}
 
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	
 
 	
 }

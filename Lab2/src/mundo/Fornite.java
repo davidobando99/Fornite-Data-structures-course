@@ -1,7 +1,10 @@
 package mundo;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.concurrent.ThreadLocalRandom;
 
 import collections.HashNode;
@@ -10,6 +13,7 @@ import collections.IHashTable;
 import collections.IQueue;
 import collections.Node;
 import collections.Queue;
+import collections.Stack;
 
 public class Fornite {
 
@@ -240,19 +244,50 @@ public class Fornite {
 		return ThreadLocalRandom.current().nextInt(min,max);
 	}
 	
-//	public readPlayers() {
-//		File file = new File("./data/pruebaAleatorios.txt");
-//		FileReader reader = new FileReader(file);
-//		BufferedReader buffer = new BufferedReader(reader);
-//		String line="";
-//		int arreglo=0;
-//		arreglo=2;
-//		while((line= buffer.readLine())!=null) {
-//			Player newPlayer = new Player();
-//			
-//		}
-//	    
-//	}
+	
+	
+	public void readPlayers() {
+		try {
+		File file = new File("./data/pruebaAleatorios.txt");
+		FileReader reader=new FileReader(file);
+		
+		BufferedReader buffer = new BufferedReader(reader);
+		String line="";
+		String[] array= new String[6];
+		String name="";
+		int ping=0;
+		int id=0;
+		String geo="";
+		String platform="";
+		int skill=0;
+		Stack<Weapon> stack = new Stack<Weapon>();
+		Weapon ax = new Weapon("hacha", "img",30, Weapon.MELEE);
+		stack.push(ax);
+		while((line= buffer.readLine())!=null) {
+			array = line.split(",");
+			
+				name=array[0];
+				ping=Integer.parseInt(array[1]);
+				id=Integer.parseInt(array[2]);
+				geo=array[3];
+				platform=array[4];
+				skill=Integer.parseInt(array[5]);
+			
+			Player newPlayer = new Player(name, ping,geo,skill, id, platform, stack);
+			System.out.println(newPlayer.getName());
+			
+		}
+		buffer.close();
+		}
+		catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	    
+	}
 	
 	
 
@@ -265,6 +300,9 @@ public class Fornite {
 		f.enqueue(dos);
 		System.out.println(f.sizeQueue());
 		System.out.println(f.getMyQueue().getFront().getValue().getName());
+		
+		f.readPlayers();
+		
 
 	}
 
