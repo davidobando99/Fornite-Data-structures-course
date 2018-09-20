@@ -17,18 +17,18 @@ import collections.Stack;
 
 public class Fornite {
 
-	
+	public static final int AMOUNT_TABLE= 500000;
 	private IQueue<Player> myQueue;
 	private IHashTable<Integer, Player> consoleTable;
 	private IHashTable<Integer, Player> phoneTable;
 	private IHashTable<Integer, Player> pcTable;
 	
 
-	public Fornite(int c, int p, int pc) {
+	public Fornite() {
 		myQueue = new Queue<Player>();
-		consoleTable = new HashTable<Integer, Player>(c);
-		phoneTable = new HashTable<Integer, Player>(p);
-		pcTable = new HashTable<Integer, Player>(pc);
+		consoleTable = new HashTable<Integer, Player>(AMOUNT_TABLE);
+		phoneTable = new HashTable<Integer, Player>(AMOUNT_TABLE);
+		pcTable = new HashTable<Integer, Player>(AMOUNT_TABLE);
 		
 	}
 
@@ -64,10 +64,6 @@ public class Fornite {
 		this.myQueue = myQueue;
 	}
 
-
-	public void setMyQueue(Queue<Player> miQueue) {
-		this.myQueue = miQueue;
-	}
 
 	public void dequeue() {
 		myQueue.dequeue();
@@ -109,8 +105,8 @@ public class Fornite {
 		}
 
 	}
-	public HashNode<Integer, Player> searchTable(IHashTable<Integer, Player> myHash, Integer key) {
-		return myHash.search(key);
+	public Player searchTable(IHashTable<Integer, Player> myHash, Integer key) {
+		return myHash.search(key).getValue();
 	}
 	
 //	public void skillRanking(HashTable<Integer, Player> myHash) {
@@ -218,40 +214,40 @@ public class Fornite {
 		}
 		return low;
 	}
-//	public HashTable<Integer,Player> mostrarTabla() {
-//		
-//		boolean e=false;
-//		HashTable<Integer, Player> n= new HashTable<Integer,Player>();
-//		int key=generateRandom(1, 1000000);
-//		
-//		while(!e) {
-//			
-//			
-//			try {
-//				if(phoneTable.getHashTable()[key]!=null ) {
-//					e=true;	
-//					System.out.println("phone");
-//					n.setHashTable(phoneTable.getHashTable());
-//					
-//				}
-//				else if( pcTable.getHashTable()[key]!=null){
-//					e=true;
-//					System.out.println("pc");
-//					n.setHashTable(pcTable.getHashTable());
-//				}
-//				else if(consoleTable.getHashTable()[key]!=null) {
-//					e=true;	
-//					System.out.println("console");
-//					n.setHashTable(consoleTable.getHashTable());
-//				}
-//			} catch (Exception e1) {
-//				key=generateRandom(1, 1000000);
-//			}
-//			key=generateRandom(1, 1000000);
-//		}
-//		return n;
-//		
-//	}
+	public HashTable<Integer,Player> mostrarTabla() {
+		
+		boolean e=false;
+		HashTable<Integer, Player> n= new HashTable<Integer,Player>(AMOUNT_TABLE);
+		int key=generateRandom(1, 1000000);
+		
+		while(!e) {
+			
+			
+			try {
+				if(phoneTable.getHashTable()[key]!=null ) {
+					e=true;	
+					System.out.println("phone");
+					n.setHashTable(phoneTable.getHashTable());
+					
+				}
+				else if( pcTable.getHashTable()[key]!=null){
+					e=true;
+					System.out.println("pc");
+					n.setHashTable(pcTable.getHashTable());
+				}
+				else if(consoleTable.getHashTable()[key]!=null) {
+					e=true;	
+					System.out.println("console");
+					n.setHashTable(consoleTable.getHashTable());
+				}
+			} catch (Exception e1) {
+				key=generateRandom(1, 1000000);
+			}
+			key=generateRandom(1, 1000000);
+		}
+		return n;
+		
+	}
 	
 	
 	public int generateRandom(int min, int max) {
@@ -286,10 +282,11 @@ public class Fornite {
 				id=Integer.parseInt(array[2]);
 				geo=array[3];
 				platform=array[4];
+				//System.out.println(array[5]+"****");
 				skill=Integer.parseInt(array[5]);
 			
 			Player newPlayer = new Player(name, ping,geo,skill, id, platform, stack);
-			System.out.println(newPlayer.getName());
+			System.out.println(newPlayer.getSkill());
 			
 		}
 		buffer.close();
@@ -307,20 +304,20 @@ public class Fornite {
 	
 
 	public static void main(String[] args) {
-		Fornite f = new Fornite(7,7,7);
+		Fornite f = new Fornite();
 		Player uno = new Player("Huertas", 80, "Sur", 50, 3107, "cp",null);
 		Player dos = new Player("Huertas", 80, "Sur", 50, 3107, "cp",null);
       
 		f.enqueue(uno);
 		f.enqueue(dos);
-//		System.out.println(f.sizeQueue());
-//		System.out.println(f.getMyQueue().getFront().getValue().getName());
+		System.out.println(f.sizeQueue());
+		System.out.println(f.getMyQueue().getFront().getValue().getName());
 		
-		//HashTable<Integer, Player> hashTable= f.mostrarTabla();
+		//IHashTable<Integer, Player> hashTable= f.mostrarTabla();
 		
 		//System.out.println("Size: "+hashTable.getSizeTable());
 		
-//		f.readPlayers();
+		f.readPlayers();
 		
 
 	}

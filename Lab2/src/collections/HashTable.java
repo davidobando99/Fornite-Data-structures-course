@@ -1,6 +1,5 @@
 package collections;
 
-import javax.swing.plaf.synth.SynthSeparatorUI;
 
 public class HashTable<K,V> implements IHashTable<K,V>{
 	
@@ -10,9 +9,11 @@ public class HashTable<K,V> implements IHashTable<K,V>{
 	private int sizeTable;
 	
 	
+	@SuppressWarnings("unchecked")
 	public HashTable(int sizeTable){
 		this.sizeTable=sizeTable;
 		hashTable = new HashNode[sizeTable];
+		
 		
     }
 	
@@ -105,10 +106,9 @@ public class HashTable<K,V> implements IHashTable<K,V>{
 	
 	
 	public static void main(String[] args) {
-		HashTable<Integer, String> n= new HashTable<Integer, String>(1);
-		
-		
-		
+		IHashTable<Integer, String> n= new HashTable<Integer, String>(1);
+		n.setSizeTable(7);
+		System.out.println(n.getHashTable().length);
 
 		n.add("David", 36648);
 		n.add("Laura", 34745);

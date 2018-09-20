@@ -77,7 +77,7 @@ class ForniteTest {
 		fornite.addTable(player2, player2.getId());
 		
 		
-		String player2Name = fornite.searchTable(fornite.getPcTable(), player2.getId()).getValue().getName();
+		String player2Name = fornite.searchTable(fornite.getPcTable(), player2.getId()).getName();
 		assertEquals(player2.getName(),player2Name);
 		
 	}
