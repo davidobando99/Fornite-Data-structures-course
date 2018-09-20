@@ -1,7 +1,5 @@
 package mundo;
 
-import java.util.concurrent.ThreadLocalRandom;
-
 import collections.HashNode;
 import collections.HashTable;
 import collections.IHashTable;
