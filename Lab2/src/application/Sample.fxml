@@ -4,55 +4,71 @@
 <?import javafx.scene.control.ScrollBar?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="anchorPrincipal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="wallpaperFortnite" fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../../Desktop/FOTO%20DE%20FONDO1.jpg" />
          </image>
       </ImageView>
-      <TabPane prefHeight="400.0" prefWidth="606.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane fx:id="tabPanePrincipal" prefHeight="400.0" prefWidth="606.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-          <Tab text="Top Celular">
+          <Tab fx:id="topCell" text="Top Celular">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="313.0" prefWidth="546.0">
+              <AnchorPane fx:id="anchorPaneCell" minHeight="0.0" minWidth="0.0" prefHeight="313.0" prefWidth="546.0">
                      <children>
-                        <ListView layoutX="303.0" layoutY="12.0" prefHeight="347.0" prefWidth="290.0" />
-                        <ScrollBar layoutX="577.0" layoutY="12.0" orientation="VERTICAL" prefHeight="340.0" prefWidth="15.0" />
+                        <ListView fx:id="listCell" layoutX="303.0" layoutY="12.0" prefHeight="347.0" prefWidth="290.0" />
+                        <ScrollBar fx:id="scrCell" layoutX="577.0" layoutY="12.0" orientation="VERTICAL" prefHeight="340.0" prefWidth="15.0" />
+                        <ToggleButton fx:id="butStartCell" layoutX="69.0" layoutY="261.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="179.0" text="Iniciar Partida" textAlignment="CENTER">
+                           <font>
+                              <Font name="Bauhaus 93" size="19.0" />
+                           </font>
+                        </ToggleButton>
                      </children>
                   </AnchorPane>
             </content>
           </Tab>
-          <Tab text="Top PC">
+          <Tab fx:id="topPC" text="Top PC">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <AnchorPane fx:id="anchorPanePC" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <ListView layoutX="301.0" layoutY="11.0" prefHeight="347.0" prefWidth="290.0" />
-                        <ScrollBar layoutX="577.0" layoutY="11.0" orientation="VERTICAL" prefHeight="347.0" prefWidth="14.0" />
+                        <ListView fx:id="listPC" layoutX="301.0" layoutY="11.0" prefHeight="347.0" prefWidth="290.0" />
+                        <ScrollBar fx:id="scrPC" layoutX="577.0" layoutY="11.0" orientation="VERTICAL" prefHeight="347.0" prefWidth="14.0" />
+                        <ToggleButton fx:id="butStartPC" layoutX="70.0" layoutY="262.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="179.0" text="Iniciar Partida">
+                           <font>
+                              <Font name="Bauhaus 93" size="19.0" />
+                           </font>
+                        </ToggleButton>
                      </children>
                   </AnchorPane>
             </content>
           </Tab>
-            <Tab text="Top Consolas">
+            <Tab fx:id="topConsole" text="Top Consolas">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                <AnchorPane fx:id="anchorPaneConsole" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <ListView layoutX="303.0" layoutY="12.0" prefHeight="347.0" prefWidth="290.0" />
-                        <ScrollBar layoutX="578.0" layoutY="12.0" orientation="VERTICAL" prefHeight="347.0" prefWidth="14.0" />
+                        <ListView fx:id="listConsole" layoutX="303.0" layoutY="12.0" prefHeight="347.0" prefWidth="290.0" />
+                        <ScrollBar fx:id="scrConsole" layoutX="578.0" layoutY="12.0" orientation="VERTICAL" prefHeight="347.0" prefWidth="14.0" />
+                        <ToggleButton fx:id="butStartConsole" layoutX="68.0" layoutY="264.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="179.0" text="Iniciar Partida">
+                           <font>
+                              <Font name="Bauhaus 93" size="19.0" />
+                           </font>
+                        </ToggleButton>
                      </children>
                   </AnchorPane>
               </content>
             </Tab>
-            <Tab text="San Valentín">
+            <Tab fx:id="tabSanValentin" text="San Valentín">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                <AnchorPane fx:id="anchorPaneSanValentin" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <ImageView fitHeight="393.0" fitWidth="612.0" layoutX="-4.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="imgSanValentin" fitHeight="393.0" fitWidth="612.0" layoutX="-4.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../../../../Desktop/san%20valentin%203.jpg" />
                            </image>
