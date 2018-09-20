@@ -53,61 +53,113 @@ public class Player {
 	//**************************
     
 	/**
-	 * 
+	 * returns the name attribute
 	 * @return name
 	 */
 	public String getName() {
 		return name;
 	}
-
+    
+	/**
+	 * update the name attribute
+	 * @param name
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
-
+    
+	/**
+	 * returns the ping attribute
+	 * @return ping
+	 */
 	public int getPing() {
 		return ping;
 	}
-
+    
+	/**
+	 * update the ping attribute 
+	 * @param ping
+	 */
 	public void setPing(int ping) {
 		this.ping = ping;
 	}
 
+	/**
+	 * returns the geo attribute
+	 * @return geo
+	 */
 	public String getGeo() {
 		return geo;
 	}
 
+	/**
+	 * update the geo attribute
+	 * @param geo
+	 */
 	public void setGeo(String geo) {
 		this.geo = geo;
 	}
 
+	/**
+	 * returns the skill attribute
+	 * @return skill
+	 */
 	public int getSkill() {
 		return skill;
 	}
-
+    
+	/**
+	 * update the skill attribute
+	 * @param skill
+	 */
 	public void setSkill(int skill) {
 		this.skill = skill;
 	}
 
+	/**
+	 * returns the id attribute
+	 * @return id
+	 */
 	public int getId() {
 		return id;
 	}
-
+    
+	/**
+	 * update the id attribute
+	 * @param id
+	 */
 	public void setId(int id) {
 		this.id = id;
 	}
 
+	/**
+	 * returns the platform attribute
+	 * @return platform
+	 */
 	public String getPlatform() {
 		return platform;
 	}
-
+	
+    /**
+     * uodate the platform attribute
+     * @param platform
+     */
 	public void setPlatform(String platform) {
 		this.platform = platform;
 	}
 
+	/**
+	 * returns the weaponStack attribute
+	 * @return weaponStack
+	 */
 	public Stack<Weapon> getWeaponStack() {
 		return weaponStack;
 	}
 
+	/**
+	 * update the weaponStack attribute
+	 * @param weaponStack
+	 */
 	public void setWeaponStack(Stack<Weapon> weaponStack) {
 		this.weaponStack = weaponStack;
 	}	
