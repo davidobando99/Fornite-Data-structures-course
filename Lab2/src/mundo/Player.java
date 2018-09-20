@@ -1,5 +1,8 @@
 package mundo;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+
 import collections.Stack;
 
 public class Player {
@@ -83,6 +86,17 @@ public class Player {
 		this.weaponStack = weaponStack;
 	}
 	
+	
+	public readPlayers() {
+		File file = new File("./data/pruebaAleatorios.txt");
+		FileReader reader = new FileReader(file);
+		BufferedReader buffer = new BufferedReader(reader);
+		String line="";
+		while((line= buffer.readLine())!=null) {
+			Player newPlayer = new Player();
+		}
+	    
+	}
 	
 
 	
