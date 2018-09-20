@@ -93,6 +93,7 @@ public class Player {
 		BufferedReader buffer = new BufferedReader(reader);
 		String line="";
 		int arreglo=0;
+		arreglo=2;
 		while((line= buffer.readLine())!=null) {
 			Player newPlayer = new Player();
 			
