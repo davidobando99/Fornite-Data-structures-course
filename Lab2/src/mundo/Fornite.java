@@ -24,11 +24,11 @@ public class Fornite {
 	private IHashTable<Integer, Player> pcTable;
 	
 
-	public Fornite() {
+	public Fornite(int c, int p, int pc) {
 		myQueue = new Queue<Player>();
-		consoleTable = new HashTable<Integer, Player>();
-		phoneTable = new HashTable<Integer, Player>();
-		pcTable = new HashTable<Integer, Player>();
+		consoleTable = new HashTable<Integer, Player>(c);
+		phoneTable = new HashTable<Integer, Player>(p);
+		pcTable = new HashTable<Integer, Player>(pc);
 		
 	}
 
@@ -36,11 +36,11 @@ public class Fornite {
 		return myQueue;
 	}
 
-	public IHashTable<Integer, Player> getXboxTable() {
+	public IHashTable<Integer, Player> getConsoleTable() {
 		return consoleTable;
 	}
 
-	public void setXboxTable(IHashTable<Integer, Player> xboxTable) {
+	public void setConsoleTable(IHashTable<Integer, Player> xboxTable) {
 		this.consoleTable = xboxTable;
 	}
 
@@ -86,21 +86,26 @@ public class Fornite {
 	}
 
 	public int sizeQueue() {
-		System.out.println(myQueue.size());
+//		System.out.println(myQueue.size());
 		return myQueue.size();
 	}
 	
 
 	public void addTable(Player newElement, Integer key) {
+		
+		System.out.println("eee");
 
 		if (newElement.getPlatform().equals(Player.CONSOLE)) {
 
 			consoleTable.add(newElement, key);
+			System.out.println("Console");
 
 		} else if (newElement.getPlatform().equals(Player.PC)) {
 			pcTable.add(newElement, key);
+			System.out.println("pc");
 		} else {
 			phoneTable.add(newElement, key);
+			System.out.println("phone");
 		}
 
 	}
@@ -213,30 +218,40 @@ public class Fornite {
 		}
 		return low;
 	}
-	public HashTable<Integer,Player> mostrarTabla() {
-		
-		boolean e=false;
-		HashTable<Integer, Player> n= new HashTable<>();
-		int key=generateRandom(1, 1000000);
-		while(!e) {
-			
-			if(phoneTable.getHashTable()[key]!=null ) {
-				e=true;	
-				n.setHashTable(phoneTable.getHashTable());
-				
-			}
-			else if( pcTable.getHashTable()[key]!=null){
-				e=true;	
-				n.setHashTable(pcTable.getHashTable());
-			}
-			else if(consoleTable.getHashTable()[key]!=null) {
-				e=true;	
-				n.setHashTable(consoleTable.getHashTable());
-			}
-		}
-		return n;
-		
-	}
+//	public HashTable<Integer,Player> mostrarTabla() {
+//		
+//		boolean e=false;
+//		HashTable<Integer, Player> n= new HashTable<Integer,Player>();
+//		int key=generateRandom(1, 1000000);
+//		
+//		while(!e) {
+//			
+//			
+//			try {
+//				if(phoneTable.getHashTable()[key]!=null ) {
+//					e=true;	
+//					System.out.println("phone");
+//					n.setHashTable(phoneTable.getHashTable());
+//					
+//				}
+//				else if( pcTable.getHashTable()[key]!=null){
+//					e=true;
+//					System.out.println("pc");
+//					n.setHashTable(pcTable.getHashTable());
+//				}
+//				else if(consoleTable.getHashTable()[key]!=null) {
+//					e=true;	
+//					System.out.println("console");
+//					n.setHashTable(consoleTable.getHashTable());
+//				}
+//			} catch (Exception e1) {
+//				key=generateRandom(1, 1000000);
+//			}
+//			key=generateRandom(1, 1000000);
+//		}
+//		return n;
+//		
+//	}
 	
 	
 	public int generateRandom(int min, int max) {
@@ -292,16 +307,20 @@ public class Fornite {
 	
 
 	public static void main(String[] args) {
-		Fornite f = new Fornite();
+		Fornite f = new Fornite(7,7,7);
 		Player uno = new Player("Huertas", 80, "Sur", 50, 3107, "cp",null);
 		Player dos = new Player("Huertas", 80, "Sur", 50, 3107, "cp",null);
       
 		f.enqueue(uno);
 		f.enqueue(dos);
-		System.out.println(f.sizeQueue());
-		System.out.println(f.getMyQueue().getFront().getValue().getName());
+//		System.out.println(f.sizeQueue());
+//		System.out.println(f.getMyQueue().getFront().getValue().getName());
 		
-		f.readPlayers();
+		//HashTable<Integer, Player> hashTable= f.mostrarTabla();
+		
+		//System.out.println("Size: "+hashTable.getSizeTable());
+		
+//		f.readPlayers();
 		
 
 	}

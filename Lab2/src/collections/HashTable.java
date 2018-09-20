@@ -10,7 +10,8 @@ public class HashTable<K,V> implements IHashTable<K,V>{
 	private int sizeTable;
 	
 	
-	public HashTable(){
+	public HashTable(int sizeTable){
+		this.sizeTable=sizeTable;
 		hashTable = new HashNode[sizeTable];
 		
     }
@@ -33,6 +34,7 @@ public class HashTable<K,V> implements IHashTable<K,V>{
 
 	@Override
 	public void setSizeTable(int sizeTable) {
+//		hashTable[sizeTable];
 		this.sizeTable = sizeTable;
 	}
 
@@ -73,6 +75,8 @@ public class HashTable<K,V> implements IHashTable<K,V>{
 	
 	@Override
 	public int getSlot(K key, int c1, int c2) {
+		
+		System.out.println("length " +hashTable.length);
 		int hashFunction = key.hashCode() % hashTable.length;
 		int slot=0;
 		int i=0;
@@ -101,7 +105,8 @@ public class HashTable<K,V> implements IHashTable<K,V>{
 	
 	
 	public static void main(String[] args) {
-		HashTable<Integer, String> n= new HashTable<Integer, String>();
+		HashTable<Integer, String> n= new HashTable<Integer, String>(1);
+		
 		
 		
 

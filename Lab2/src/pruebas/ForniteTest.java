@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+import collections.HashTable;
 import mundo.Fornite;
 import mundo.Player;
 
@@ -12,13 +13,20 @@ class ForniteTest {
 	private Fornite fornite;
 	private Player player1;
 	private Player player2;
+	private Player player3;
+	private Player player4;
+	private Player player5;
+	private Player player6;
 	
 	
 	public void setUp() {
 		fornite= new Fornite();
 		player1= new Player("David", 101, "norte",256, 233445, "PC" ,null);
 		player2= new Player("Douglas", 188, "sur",432, 134322, "PC", null);
-		
+		player3= new Player("Huertas", 188, "sur",432, 134552, "Console", null);
+		player4= new Player("Laura", 188, "norte",432, 346353, "Phone", null);
+		player5= new Player("Pepito", 188, "oeste",432, 011111, "Phone", null);
+		player6= new Player("Felipe", 188, "este",432, 586611, "Console", null);
 		
 	}
 
@@ -50,6 +58,7 @@ class ForniteTest {
 		assertEquals(fornite.sizeQueue(),2 );
 	}
 	
+	@Test
 	public void addTableTest() {
 		setUp();
 		fornite.getPcTable().setSizeTable(3);
@@ -60,6 +69,7 @@ class ForniteTest {
 		
 	}
 	
+	@Test
 	public void searchTableTest() {
 		setUp();
 		fornite.getPcTable().setSizeTable(3);
@@ -71,6 +81,34 @@ class ForniteTest {
 		assertEquals(player2.getName(),player2Name);
 		
 	}
+	
+	@Test
+	public void mostrarTablaTest() {		
+		setUp();
+		
+		fornite.getPcTable().add(player1, player1.getId());
+		fornite.getPcTable().add(player2, player2.getId());
+		fornite.getConsoleTable().add(player3, player3.getId());
+		fornite.getPhoneTable().add(player4, player4.getId());
+		fornite.getPhoneTable().add(player5, player5.getId());
+		fornite.getConsoleTable().add(player6, player6.getId());
+
+		HashTable<Integer, Player> hashPlayer= fornite.mostrarTabla();
+
+		System.out.println("fornite " +fornite.mostrarTabla().getSizeTable());
+//		assertTrue(hashPlayer.getHashTable()!=null);
+		
+		
+	}
+//	@Test
+//	public void addFirstPlayerTest() {
+//		setUp();
+//		
+//		fornite.addFirstPlayer(fornite.mostrarTabla());
+//		
+//		assertTrue(!fornite.getPcTable().isEmpty()|| !fornite.getConsoleTable().isEmpty()||!fornite.getPhoneTable().isEmpty());
+//		
+//	}
 	
 	
 
