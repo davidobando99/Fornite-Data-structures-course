@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 import collections.HashTable;
+import collections.IHashTable;
 import mundo.Fornite;
 import mundo.Player;
 
@@ -95,20 +96,30 @@ class ForniteTest {
 
 		HashTable<Integer, Player> hashPlayer= fornite.mostrarTabla();
 
-		System.out.println("fornite " +fornite.mostrarTabla().getSizeTable());
-//		assertTrue(hashPlayer.getHashTable()!=null);
+//		System.out.println("fornite " +fornite.mostrarTabla().getSizeTable());
+		assertTrue(hashPlayer.getHashTable()!=null);
 		
 		
 	}
-//	@Test
-//	public void addFirstPlayerTest() {
-//		setUp();
-//		
-//		fornite.addFirstPlayer(fornite.mostrarTabla());
-//		
-//		assertTrue(!fornite.getPcTable().isEmpty()|| !fornite.getConsoleTable().isEmpty()||!fornite.getPhoneTable().isEmpty());
-//		
-//	}
+	@Test
+	public void addFirstPlayerTest() {
+		setUp();
+		
+		fornite.addFirstPlayer(fornite.mostrarTabla());
+		
+		assertTrue(!fornite.getPcTable().isEmpty()|| !fornite.getConsoleTable().isEmpty()||!fornite.getPhoneTable().isEmpty());
+		
+	}
+	public void addLowerLevelTest() {
+		setUp();
+		
+		IHashTable<Integer, Player> m= null;
+		m=fornite.mostrarTabla();
+		fornite.addFirstPlayer(m);
+		
+		
+		
+	}
 	
 	
 

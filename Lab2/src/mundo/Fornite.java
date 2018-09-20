@@ -133,7 +133,7 @@ public class Fornite {
 	//
 	//
 	// }
-	public void addFirstPlayer(HashTable<Integer, Player> hashTable) {
+	public Player addFirstPlayer(HashTable<Integer, Player> hashTable) {
 		int key = generateRandom(1, 1000000);
 		Player player = null;
 		boolean cond = false;
@@ -149,11 +149,12 @@ public class Fornite {
 			} else
 				key = generateRandom(1, 1000000);
 		}
-		addLowerLevel(player, hashTable);
+		
+		return player;
 
 	}
 
-	public void addLowerLevel(Player medium, HashTable<Integer, Player> hashTable) {
+	public Player addLowerLevel(Player medium, HashTable<Integer, Player> hashTable) {
 
 		int x = 50;
 		int conta = 0;
@@ -169,7 +170,8 @@ public class Fornite {
 			myQueue.enqueue(n);
 			conta++;
 		}
-		addHighLevel(n, hashTable);
+//		addHighLevel(n, hashTable);
+		return n;
 
 	}
 
