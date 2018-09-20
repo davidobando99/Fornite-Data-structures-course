@@ -5,7 +5,7 @@ public class Stack<S> implements IStack<S> {
 	// **********************
 	// Relations
 	// **********************
-	private Node<S> last;
+	private NodeStack<S> last;
 
 	/**
 	 * Constructor of this class.
@@ -20,11 +20,11 @@ public class Stack<S> implements IStack<S> {
 	 */
 	public void push(S newElement) {
 
-		Node<S> newElement2 = new Node<S>(newElement);
+		NodeStack<S> newElement2 = new NodeStack<S>(newElement);
 		if (last == null) {
 			last = newElement2;
 		} else {
-			Node<S> actual = last;
+			NodeStack<S> actual = last;
 			if (last.getNext() == null) {
 				last = newElement2;
 				last.setNext(actual);
@@ -47,7 +47,7 @@ public class Stack<S> implements IStack<S> {
 		} else if (last != null && last.getNext() == null) {
 			last = null;
 		} else {
-			Node<S> actual = last.getNext();
+			NodeStack<S> actual = last.getNext();
 			last = null;
 			last = actual;
 		}
@@ -75,7 +75,7 @@ public class Stack<S> implements IStack<S> {
 	 * Analyze if exists an element given in the stack.
 	 */
 	public boolean search(S newElement) {
-		Node<S> actual = last;
+		NodeStack<S> actual = last;
 		boolean wasFound = false;
 
 		while (actual != null) {
@@ -94,7 +94,7 @@ public class Stack<S> implements IStack<S> {
 	 */
 	public int size() {
 		int accountant = 0;
-		Node<S> actual = last;
+		NodeStack<S> actual = last;
 
 		while (actual != null) {
 			accountant++;
@@ -107,11 +107,11 @@ public class Stack<S> implements IStack<S> {
 	// ************************
 	// METHODS GET AND SETTERS
 	// ************************
-	public Node<S> getLast() {
+	public NodeStack<S> getLast() {
 		return last;
 	}
 
-	public void setLast(Node<S> last) {
+	public void setLast(NodeStack<S> last) {
 		this.last = last;
 	}
 
