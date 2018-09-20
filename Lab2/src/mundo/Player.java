@@ -92,8 +92,10 @@ public class Player {
 		FileReader reader = new FileReader(file);
 		BufferedReader buffer = new BufferedReader(reader);
 		String line="";
+		int arreglo=0;
 		while((line= buffer.readLine())!=null) {
 			Player newPlayer = new Player();
+			
 		}
 	    
 	}
