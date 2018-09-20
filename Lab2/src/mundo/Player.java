@@ -84,26 +84,6 @@ public class Player {
 
 	public void setWeaponStack(Stack<Weapon> weaponStack) {
 		this.weaponStack = weaponStack;
-	}
-	
-	
-	public readPlayers() {
-		File file = new File("./data/pruebaAleatorios.txt");
-		FileReader reader = new FileReader(file);
-		BufferedReader buffer = new BufferedReader(reader);
-		String line="";
-		int arreglo=0;
-		arreglo=2;
-		while((line= buffer.readLine())!=null) {
-			Player newPlayer = new Player();
-			
-		}
-	    
-	}
-	
-
-	
-	
-	
+	}	
 
 }

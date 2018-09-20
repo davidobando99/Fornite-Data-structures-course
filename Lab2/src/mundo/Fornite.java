@@ -1,5 +1,7 @@
 package mundo;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.util.concurrent.ThreadLocalRandom;
 
 import collections.HashNode;
@@ -237,6 +239,22 @@ public class Fornite {
 		
 		return ThreadLocalRandom.current().nextInt(min,max);
 	}
+	
+//	public readPlayers() {
+//		File file = new File("./data/pruebaAleatorios.txt");
+//		FileReader reader = new FileReader(file);
+//		BufferedReader buffer = new BufferedReader(reader);
+//		String line="";
+//		int arreglo=0;
+//		arreglo=2;
+//		while((line= buffer.readLine())!=null) {
+//			Player newPlayer = new Player();
+//			
+//		}
+//	    
+//	}
+	
+	
 
 	public static void main(String[] args) {
 		Fornite f = new Fornite();
