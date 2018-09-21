@@ -7,16 +7,13 @@ import java.util.ArrayList;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.ScrollBar;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
 public class SampleController {
@@ -86,145 +83,9 @@ public class SampleController {
 
 	@FXML
 	private ImageView imgSanValentin;
-	  
-	@FXML
-    private ImageView arma1;
-
-    @FXML
-    private ImageView arma5;
-
-    @FXML
-    private ImageView arma3;
-
-    @FXML
-    private ImageView arma4;
-
-    @FXML
-    private ImageView arma2;
-    
-    @FXML
-    private ImageView m79;
-    
-    @FXML
-    private ListView<String> listWeapons;
-    
-    private ArrayList<String> jj=new ArrayList<>();
 
 	public void initialize() {
 		fr = new Fornite();
-		
-		arma1.setOnMousePressed(new EventHandler<MouseEvent>() {
-
-			@Override
-			public void handle(MouseEvent event) {
-				// TODO Auto-generated method stub
-				
-				
-				jj.add("scar");
-			
-				ObservableList<String> gg = FXCollections.observableArrayList();
-				for (int i = 0; i < jj.size(); i++) {
-					gg.add(jj.get(i));
-				}
-				
-				listWeapons.setItems(gg);
-			
-				
-			}
-		});
-		
-		arma2.setOnMousePressed(new EventHandler<MouseEvent>() {
-
-			@Override
-			public void handle(MouseEvent event) {
-				// TODO Auto-generated method stub
-				
-				jj.add("g3c4");
-			
-				ObservableList<String> gg = FXCollections.observableArrayList();
-				for (int i = 0; i < jj.size(); i++) {
-					gg.add(jj.get(i));
-				}
-				listWeapons.setItems(gg);
-			
-				
-			}
-		});
-		
-		arma3.setOnMousePressed(new EventHandler<MouseEvent>() {
-
-			@Override
-			public void handle(MouseEvent event) {
-				// TODO Auto-generated method stub
-				
-				jj.add("espada");
-			
-				ObservableList<String> gg = FXCollections.observableArrayList();
-				for (int i = 0; i < jj.size(); i++) {
-					gg.add(jj.get(i));
-				}
-				listWeapons.setItems(gg);
-			
-				
-			}
-		});
-		
-		arma4.setOnMousePressed(new EventHandler<MouseEvent>() {
-
-			@Override
-			public void handle(MouseEvent event) {
-				// TODO Auto-generated method stub
-				
-				jj.add("famas");
-			
-				ObservableList<String> gg = FXCollections.observableArrayList();
-				for (int i = 0; i < jj.size(); i++) {
-					gg.add(jj.get(i));
-				}
-				listWeapons.setItems(gg);
-			
-				
-			}
-		});
-		
-		arma5.setOnMousePressed(new EventHandler<MouseEvent>() {
-
-			@Override
-			public void handle(MouseEvent event) {
-				// TODO Auto-generated method stub
-				
-				jj.add("pistola");
-			
-				ObservableList<String> gg = FXCollections.observableArrayList();
-				for (int i = 0; i < jj.size(); i++) {
-					gg.add(jj.get(i));
-				}
-				listWeapons.setItems(gg);
-			
-				
-			}
-		});
-		
-		m79.setOnMousePressed(new EventHandler<MouseEvent>() {
-
-			@Override
-			public void handle(MouseEvent event) {
-				// TODO Auto-generated method stub
-				
-				
-				jj.add("m79");
-			
-				ObservableList<String> gg = FXCollections.observableArrayList();
-				for (int i = 0; i < jj.size(); i++) {
-					gg.add(jj.get(i));
-				}
-				
-				listWeapons.setItems(gg);
-			
-				
-			}
-		});
-		
 	}
 
 	@FXML
@@ -271,7 +132,5 @@ public class SampleController {
 
 		listPC.setItems(gg);
 	}
-	
-	
 
 }
