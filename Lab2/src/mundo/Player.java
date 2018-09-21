@@ -168,6 +168,10 @@ public class Player {
 		weaponStack.push(newWeapon);
 	}
 	
+	public void empty() {
+		
+	}
+	
 	@Override 
 	public String toString() {
 		return name+" ";
