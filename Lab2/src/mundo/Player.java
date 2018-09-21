@@ -162,24 +162,6 @@ public class Player {
 	 */
 	public void setWeaponStack(Stack<Weapon> weaponStack) {
 		this.weaponStack = weaponStack;
-	}
-	
-	public void pushWeapon(Weapon newWeapon) {
-		weaponStack.push(newWeapon);
-	}
-	
-	public void empty() {
-		
-	}
-	
-	@Override 
-	public String toString() {
-		return name+" ";
-	}
-	
-	
-	
-	
-	
+	}	
 
 }

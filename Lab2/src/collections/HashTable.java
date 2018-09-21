@@ -70,15 +70,8 @@ public class HashTable<K,V> implements IHashTable<K,V>{
 	}
 	@Override
 	public boolean isEmpty() {
-		boolean empty=false;
 		
-		for(int i=0;i<size()&&!empty;i++) {
-			
-			if(hashTable[i]!=null) {
-				empty=true;
-			}
-		}
-		return empty;
+		return false;
 	}
 	
 	@Override
@@ -112,29 +105,30 @@ public class HashTable<K,V> implements IHashTable<K,V>{
 	
 	
 	
-	public static void main(String[] args) {
-		IHashTable<Integer, String> n= new HashTable<Integer, String>(7);
-		
-
-		n.add("David", 36648);
-		n.add("Laura", 34745);
-		n.add("Douglas", 13359);
-		n.add("Huertas", 3);
-		n.add("kaka", 7);
-		
-		System.out.println(n.isEmpty());
-		for(int i=0; i<n.getHashTable().length;i++) {
-			if(n.getHashTable()[i]!=null){
-			System.out.println(n.getHashTable()[i].getValue()+" "+i);
-			
-			}
-		
-			
-		}
-		
-		System.out.println("buscado  "+n.search(7).getValue());
-		
-		}
+//	public static void main(String[] args) {
+//		IHashTable<Integer, String> n= new HashTable<Integer, String>(1);
+//		n.setSizeTable(7);
+//		
+//
+//		n.add("David", 36648);
+//		n.add("Laura", 34745);
+//		n.add("Douglas", 13359);
+//		n.add("Huertas", 3);
+//		n.add("kaka", 7);
+//		
+//		
+//		for(int i=0; i<n.getHashTable().length;i++) {
+//			if(n.getHashTable()[i]!=null){
+//			System.out.println(n.getHashTable()[i].getValue()+" "+i);
+//			
+//			}
+//		
+//			
+//		}
+//		
+//		System.out.println("buscado  "+n.search(7).getValue());
+//		
+//		}
 		
 		
 	}
