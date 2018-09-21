@@ -141,7 +141,7 @@ public class Player {
 	}
 	
     /**
-     * uodate the platform attribute
+     * update the platform attribute
      * @param platform
      */
 	public void setPlatform(String platform) {
@@ -162,6 +162,20 @@ public class Player {
 	 */
 	public void setWeaponStack(Stack<Weapon> weaponStack) {
 		this.weaponStack = weaponStack;
-	}	
+	}
+	
+	public void pushWeapon(Weapon newWeapon) {
+		weaponStack.push(newWeapon);
+	}
+	
+	@Override 
+	public String toString() {
+		return name+" ";
+	}
+	
+	
+	
+	
+	
 
 }
