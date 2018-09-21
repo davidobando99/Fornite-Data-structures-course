@@ -114,10 +114,10 @@ public class Fornite {
 
 		} else if (newElement.getPlatform().equals(Player.PC)) {
 			pcTable.add(newElement, key);
-
+			
 		} else {
 			phoneTable.add(newElement, key);
-
+			
 		}
 
 	}
