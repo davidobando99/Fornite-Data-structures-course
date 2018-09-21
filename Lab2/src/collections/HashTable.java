@@ -70,9 +70,20 @@ public class HashTable<K,V> implements IHashTable<K,V>{
 	}
 	@Override
 	public boolean isEmpty() {
-		
-		return false;
-	}
+	
+			boolean empty=false;
+			
+			for(int i=0;i<size()&&!empty;i++) {
+				
+				if(hashTable[i]!=null) {
+					empty=true;
+				}
+			}
+			return empty;
+		}
+
+
+	
 	
 	@Override
 	public int getSlot(K key, int c1, int c2) {
