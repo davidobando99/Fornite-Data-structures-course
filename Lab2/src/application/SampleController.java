@@ -1,10 +1,6 @@
 package application;
 import mundo.*;
 
-import java.util.ArrayList;
-
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
@@ -39,7 +35,7 @@ public class SampleController {
     private AnchorPane anchorPaneCell;
 
     @FXML
-    private ListView<Player> listCell;
+    private ListView<?> listCell;
 
     @FXML
     private ScrollBar scrCell;
@@ -92,17 +88,7 @@ public class SampleController {
     
     @FXML
     void actionButCell(ActionEvent event) {
-         ArrayList<Player> abc = fr.listPlayers();
-                  abc.add(new Player("Douglas", 0, "", 0, 0, " ", null));
-                  abc.add(new Player("El papacito", 0, "", 0, 0, " ", null));
-
-         ObservableList<Player> gg = FXCollections.observableArrayList();
          
-         for(int i = 0; i < abc.size(); i++) {
-        	 gg.add(abc.get(i)); 
-         }
-         
-         listCell.setItems(gg);
     }
 
     @FXML
