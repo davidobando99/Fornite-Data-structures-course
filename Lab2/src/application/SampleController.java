@@ -123,6 +123,7 @@ public class SampleController {
 		ArrayList<Player> abc = fr.listPlayers();
 		abc.add(new Player("Jugador5", 0, "", 0, 0, " ", null));
 		abc.add(new Player("Jugador6", 0, "", 0, 0, " ", null));
+		abc.add(new Player("Jugador7", 0, "", 0, 0, " ", null));
 
 		ObservableList<Player> gg = FXCollections.observableArrayList();
 
