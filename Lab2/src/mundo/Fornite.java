@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
 
 import collections.HashNode;
@@ -133,7 +134,7 @@ public class Fornite {
 	//
 	//
 	// }
-	public void addFirstPlayer(HashTable<Integer, Player> hashTable) {
+	public Player addFirstPlayer(HashTable<Integer, Player> hashTable) {
 		int key = generateRandom(1, 1000000);
 		Player player = null;
 		boolean cond = false;
@@ -149,11 +150,12 @@ public class Fornite {
 			} else
 				key = generateRandom(1, 1000000);
 		}
-		addLowerLevel(player, hashTable);
+		
+		return player;
 
 	}
 
-	public void addLowerLevel(Player medium, HashTable<Integer, Player> hashTable) {
+	public Player addLowerLevel(Player medium, HashTable<Integer, Player> hashTable) {
 
 		int x = 50;
 		int conta = 0;
@@ -169,7 +171,8 @@ public class Fornite {
 			myQueue.enqueue(n);
 			conta++;
 		}
-		addHighLevel(n, hashTable);
+//		addHighLevel(n, hashTable);
+		return n;
 
 	}
 
@@ -303,6 +306,19 @@ public class Fornite {
 			e.printStackTrace();
 		}
 
+	}
+	
+	public ArrayList<Player> listPlayers(){
+		
+		ArrayList<Player> py = new ArrayList<Player>();
+		
+		while(myQueue.getFront() != null) {
+			Player aux = myQueue.getFront().getValue();
+			py.add(aux);
+			myQueue.dequeue();
+		}
+		
+		return py;
 	}
 
 	public static void main(String[] args) {
