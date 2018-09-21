@@ -99,25 +99,22 @@ public class Fornite {
 	}
 
 	public int sizeQueue() {
-		
+
 		return myQueue.size();
 	}
 
 	public void addTable(Player newElement, Integer key) {
 
-		
-
 		if (newElement.getPlatform().equals(Player.CONSOLE)) {
 
 			consoleTable.add(newElement, key);
-		
 
 		} else if (newElement.getPlatform().equals(Player.PC)) {
 			pcTable.add(newElement, key);
-			
+
 		} else {
 			phoneTable.add(newElement, key);
-			
+
 		}
 
 	}
@@ -135,33 +132,35 @@ public class Fornite {
 	//
 	// }
 	public Player addFirstPlayer(HashTable<Integer, Player> hashTable) {
-		int key = generateRandom(1, 1000000);
+		int key = hashTable.getSlot(generateRandom(1, 1000000), 1, 1);
+
 		Player player = null;
 		boolean cond = false;
 
-		try {
-			while (!cond) {
-				
-				if (hashTable.getHashTable()[key].getValue() != null) {
-					
-					System.out.println("This");
+		while (!cond) {
+
+			if (key <= AMOUNT_TABLE) {
+
+				if (hashTable.getHashTable()[key] != null) {
+
+//					System.out.println("This");
 
 					if (hashTable.getHashTable()[key].getValue().getSkill() > 5) {
-						
+
 						player = hashTable.getHashTable()[key].getValue();
 						myQueue.enqueue(player);
 						cond = true;
 					}
 
-				} else
-					key = generateRandom(1, 1000000);
-			}
-			
-			
-		} catch (Exception e) {
-			key = generateRandom(1, 1000000);
+				}
+			} else
+				key = generateRandom(1, 1000000);
 		}
-	
+
+		if (player == null) {
+			System.out.println(key);
+
+		}
 		return player;
 
 	}
@@ -171,22 +170,53 @@ public class Fornite {
 		int x = 50;
 		int conta = 0;
 		Player n = null;
+		
+		System.out.println("sss"+medium.getSkill());
 
 		if (medium.getSkill() <= 50) {
+			System.out.println("YYY");
 			x = newSkillLow(medium.getSkill());
-		}
-		int key = generateRandom(medium.getSkill() - x, medium.getSkill());
+			System.out.println("XXXX");
 
-//		myQueue.enqueue(me);
+		}
+
+		int key = hashTable.getSlot(generateRandom(medium.getSkill() - x, medium.getSkill()), 1, 1);
+
 		while (conta <= 50) {
-			System.out.println("Conta " +conta);
+			System.out.println("8888");
+
 			n = newPlayerHash(key, medium.getSkill() - x, medium.getSkill(), hashTable);
+			System.out.println("Enqueue");
 			myQueue.enqueue(n);
 			conta++;
+			System.out.println("Conta " + conta);
 		}
-//		addHighLevel(n, hashTable);
 		return n;
 
+	}
+
+	public Player newPlayerHash(int key, int min, int max, HashTable<Integer, Player> hashTable) {
+		boolean n = false;
+		Player player1 = null;
+
+		while (!n) {	
+			
+
+			
+			
+			
+			if (key <= AMOUNT_TABLE) {
+				HashNode<Integer, Player> player = hashTable.getHashTable()[key];
+
+				if (player != null && player.getValue().getSkill() >= min && player.getValue().getSkill() <= max) {
+					n = true;
+					System.out.println("first");
+					player1 = player.getValue();
+				}
+			}
+			key = hashTable.getSlot(generateRandom(min, max), 1, 1);
+		}
+		return player1;
 	}
 
 	public void addHighLevel(Player medium, HashTable<Integer, Player> hashTable) {
@@ -198,7 +228,7 @@ public class Fornite {
 
 			x = newSkillHigh(medium.getSkill());
 		}
-		int key = generateRandom(medium.getSkill(), medium.getSkill() + x);
+		int key = hashTable.getSlot(generateRandom(medium.getSkill(), medium.getSkill() + x), 1, 1);
 
 		while (conta <= 50) {
 			Player n = newPlayerHash(key, medium.getSkill(), medium.getSkill() + x, hashTable);
@@ -219,26 +249,12 @@ public class Fornite {
 		return high;
 	}
 
-	public Player newPlayerHash(int key, int min, int max, HashTable<Integer, Player> hashTable) {
-		boolean n = false;
-		Player player = null;
-
-		while (!n) {
-			key = generateRandom(min, max);
-			player = hashTable.getHashTable()[key].getValue();
-
-			if (player != null && player.getSkill() >= min && player.getSkill() <= max) {
-				n = true;
-			}
-		}
-		return player;
-	}
-
 	public int newSkillLow(int num) {
 		int low = 50;
 
 		while (num - low <= 0) {
 			low -= 5;
+			System.out.println("salir");
 		}
 		return low;
 	}
@@ -254,16 +270,16 @@ public class Fornite {
 			try {
 				if (phoneTable.getHashTable()[key] != null) {
 					e = true;
-					
+
 					n.setHashTable(phoneTable.getHashTable());
 
 				} else if (pcTable.getHashTable()[key] != null) {
 					e = true;
-					
+
 					n.setHashTable(pcTable.getHashTable());
 				} else if (consoleTable.getHashTable()[key] != null) {
 					e = true;
-					
+
 					n.setHashTable(consoleTable.getHashTable());
 				}
 			} catch (Exception e1) {
@@ -320,26 +336,33 @@ public class Fornite {
 		}
 
 	}
-	
-	public ArrayList<Player> listPlayers(){
-		
+
+	public ArrayList<Player> listPlayers() {
+
 		ArrayList<Player> py = new ArrayList<Player>();
-		
-		while(myQueue.getFront() != null) {
+
+		while (myQueue.getFront() != null) {
 			Player aux = myQueue.getFront().getValue();
 			py.add(aux);
 			myQueue.dequeue();
 		}
-		
+
 		return py;
 	}
 
 	public static void main(String[] args) {
 		Fornite f = new Fornite();
 		f.readPlayers();
-//		Player pl=f.addFirstPlayer(f.mostrarTabla());
-		System.out.println(f.mostrarTabla().getSizeTable());
-//		System.out.println(pl.getSkill());
+		
+		HashTable<Integer, Player> m= null;
+		m=f.mostrarTabla();
+		Player pl = f.addFirstPlayer(m);
+
+		System.out.println("Jugador " + pl.getSkill());
+		System.out.println(pl.getSkill());
+		
+		f.addLowerLevel(pl, m);
+		System.out.println(f.getMyQueue().getBack().getValue().getSkill());
 
 //		System.out.println(f.searchTable(f.getConsoleTable(), 610997).getName());
 

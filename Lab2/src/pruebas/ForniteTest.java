@@ -110,22 +110,24 @@ class ForniteTest {
 		assertTrue(!fornite.getPcTable().isEmpty()|| !fornite.getConsoleTable().isEmpty()||!fornite.getPhoneTable().isEmpty());
 		
 	}
-//	@Test
-//	public void addLowerLevelTest() {
-//		setUp();
-//		
-//		HashTable<Integer, Player> m= null;
-//		m=fornite.mostrarTabla();
-//		Player player=fornite.addFirstPlayer(m);
-//		System.out.println("First player " +player.getSkill());
-//		fornite.addLowerLevel(player, m);
-//		
-//		assertTrue(fornite.getMyQueue().getBack().getValue().getSkill()<=player.getSkill());
-//		
-//		
-//		
-//		
-//	}
+	@Test
+	public void addLowerLevelTest() {
+		setUp();
+		fornite.readPlayers();
+		
+		HashTable<Integer, Player> m= null;
+		m=fornite.mostrarTabla();
+		Player player=fornite.addFirstPlayer(m);
+		
+		System.out.println("First player " +player.getSkill());
+		fornite.addLowerLevel(player, m);
+		
+		assertTrue(fornite.getMyQueue().getBack().getValue().getSkill()<=player.getSkill());
+		
+		
+		
+		
+	}
 	
 	
 
