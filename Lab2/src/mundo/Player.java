@@ -164,13 +164,8 @@ public class Player {
 		this.weaponStack = weaponStack;
 	}	
 	
-	public void pushWeapon(Weapon newWeapon) {
-		weaponStack.push(newWeapon);
-	}
-	
 	public void addLoveGun(Weapon newWeapon) {
 		weaponStack.push(newWeapon);
-	
 	}
 	
 	@Override 
