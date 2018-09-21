@@ -363,9 +363,7 @@ public class Fornite {
 		f.readPlayers();
 		
 		HashTable<Integer, Player> m= null;
-		System.out.println("jjj");
 		m=f.mostrarTabla();
-		System.out.println("6666");
 		Player pl = f.addFirstPlayer(m);
 		System.out.println("33333333333");
 		
