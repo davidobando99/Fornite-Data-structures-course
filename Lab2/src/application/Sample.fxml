@@ -14,7 +14,7 @@
    <children>
       <ImageView fx:id="wallpaperFortnite" fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../Desktop/FOTO%20DE%20FONDO1.jpg" />
+            <Image url="@../../images/FOTO%20DE%20FONDO1.jpg" />
          </image>
       </ImageView>
       <TabPane fx:id="tabPanePrincipal" prefHeight="400.0" prefWidth="606.0" tabClosingPolicy="UNAVAILABLE">
@@ -70,7 +70,7 @@
                      <children>
                         <ImageView fx:id="imgSanValentin" fitHeight="393.0" fitWidth="612.0" layoutX="-4.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../../Desktop/san%20valentin%203.jpg" />
+                              <Image url="@../../images/san%20valentin%203.jpg" />
                            </image>
                         </ImageView>
                      </children>
