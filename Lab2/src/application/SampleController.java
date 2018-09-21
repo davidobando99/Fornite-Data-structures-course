@@ -1,4 +1,5 @@
 package application;
+
 import mundo.*;
 
 import java.util.ArrayList;
@@ -15,107 +16,121 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
- 
-
 public class SampleController {
 
-	//Relation model
+	// Relation model
 	private Fornite fr;
-	
-	
-    @FXML
-    private AnchorPane anchorPrincipal;
 
-    @FXML
-    private ImageView wallpaperFortnite;
+	@FXML
+	private AnchorPane anchorPrincipal;
 
-    @FXML
-    private TabPane tabPanePrincipal;
+	@FXML
+	private ImageView wallpaperFortnite;
 
-    @FXML
-    private Tab topCell;
+	@FXML
+	private TabPane tabPanePrincipal;
 
-    @FXML
-    private AnchorPane anchorPaneCell;
+	@FXML
+	private Tab topCell;
 
-    @FXML
-    private ListView<Player> listCell;
+	@FXML
+	private AnchorPane anchorPaneCell;
 
-    @FXML
-    private ScrollBar scrCell;
+	@FXML
+	private ListView<Player> listCell;
 
-    @FXML
-    private ToggleButton butStartCell;
+	@FXML
+	private ScrollBar scrCell;
 
-    @FXML
-    private Tab topPC;
+	@FXML
+	private ToggleButton butStartCell;
 
-    @FXML
-    private AnchorPane anchorPanePC;
+	@FXML
+	private Tab topPC;
 
-    @FXML
-    private ListView<Player> listPC;
+	@FXML
+	private AnchorPane anchorPanePC;
 
-    @FXML
-    private ScrollBar scrPC;
+	@FXML
+	private ListView<Player> listPC;
 
-    @FXML
-    private ToggleButton butStartPC;
+	@FXML
+	private ScrollBar scrPC;
 
-    @FXML
-    private Tab topConsole;
+	@FXML
+	private ToggleButton butStartPC;
 
-    @FXML
-    private AnchorPane anchorPaneConsole;
+	@FXML
+	private Tab topConsole;
 
-    @FXML
-    private ListView<Player> listConsole;
+	@FXML
+	private AnchorPane anchorPaneConsole;
 
-    @FXML
-    private ScrollBar scrConsole;
+	@FXML
+	private ListView<Player> listConsole;
 
-    @FXML
-    private ToggleButton butStartConsole;
+	@FXML
+	private ScrollBar scrConsole;
 
-    @FXML
-    private Tab tabSanValentin;
+	@FXML
+	private ToggleButton butStartConsole;
 
-    @FXML
-    private AnchorPane anchorPaneSanValentin;
+	@FXML
+	private Tab tabSanValentin;
 
-    @FXML
-    private ImageView imgSanValentin;
-    
-    public void initialize() { 	
-    	fr = new Fornite(); 	
-    }
-    
-    @FXML
-    void actionButCell(ActionEvent event) {
-         ArrayList<Player> abc = fr.listPlayers();
-                  abc.add(new Player("Douglas", 0, "", 0, 0, " ", null));
-                  abc.add(new Player("El papacito", 0, "", 0, 0, " ", null));
+	@FXML
+	private AnchorPane anchorPaneSanValentin;
 
-         ObservableList<Player> gg = FXCollections.observableArrayList();
-         
-         for(int i = 0; i < abc.size(); i++) {
-        	 gg.add(abc.get(i)); 
-         }
-         
-         listCell.setItems(gg);
-    }
+	@FXML
+	private ImageView imgSanValentin;
 
-    @FXML
-    void actionButConsole(ActionEvent event) {
+	public void initialize() {
+		fr = new Fornite();
+	}
 
-    }
+	@FXML
+	void actionButCell(ActionEvent event) {
+		ArrayList<Player> abc = fr.listPlayers();
+		abc.add(new Player("Douglas", 0, "", 0, 0, " ", null));
+		abc.add(new Player("El papacito", 0, "", 0, 0, " ", null));
 
-    @FXML
-    void actionButPC(ActionEvent event) {
+		ObservableList<Player> gg = FXCollections.observableArrayList();
 
-    }
-    
-    
-    
+		for (int i = 0; i < abc.size(); i++) {
+			gg.add(abc.get(i));
+		}
+
+		listCell.setItems(gg);
+	}
+
+	@FXML
+	void actionButConsole(ActionEvent event) {
+		ArrayList<Player> abc = fr.listPlayers();
+		abc.add(new Player("Laura y Huertas", 0, "", 0, 0, " ", null));
+		abc.add(new Player("Juntos x 100 pre", 0, "", 0, 0, " ", null));
+
+		ObservableList<Player> gg = FXCollections.observableArrayList();
+
+		for (int i = 0; i < abc.size(); i++) {
+			gg.add(abc.get(i));
+		}
+
+		listConsole.setItems(gg);
+	}
+
+	@FXML
+	void actionButPC(ActionEvent event) {
+		ArrayList<Player> abc = fr.listPlayers();
+		abc.add(new Player("David Obando y Ruby", 0, "", 0, 0, " ", null));
+		abc.add(new Player("Juntos x 100 pre", 0, "", 0, 0, " ", null));
+
+		ObservableList<Player> gg = FXCollections.observableArrayList();
+
+		for (int i = 0; i < abc.size(); i++) {
+			gg.add(abc.get(i));
+		}
+
+		listPC.setItems(gg);
+	}
 
 }
