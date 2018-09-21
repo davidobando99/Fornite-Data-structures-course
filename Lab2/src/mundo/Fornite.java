@@ -22,7 +22,7 @@ public class Fornite {
 	// CONSTANTS
 	// *************************
 
-	public static final int AMOUNT_TABLE = 500000;
+	public static final int AMOUNT_TABLE = 50000;
 
 	// *************************
 	// ATTRIBUTES
@@ -132,7 +132,7 @@ public class Fornite {
 	//
 	// }
 	public Player addFirstPlayer(HashTable<Integer, Player> hashTable) {
-		int key = hashTable.getSlot(generateRandom(1, 1000000), 1, 1);
+		int key = hashTable.getSlot(generateRandom(1, 100000), 1, 1);
 
 		Player player = null;
 		boolean cond = false;
@@ -140,6 +140,8 @@ public class Fornite {
 		while (!cond) {
 
 			if (key <= AMOUNT_TABLE) {
+				
+				System.out.println("llave" +key);
 
 				if (hashTable.getHashTable()[key] != null) {
 
@@ -150,11 +152,13 @@ public class Fornite {
 						player = hashTable.getHashTable()[key].getValue();
 						myQueue.enqueue(player);
 						cond = true;
+						System.out.println("agregado");
 					}
 
 				}
-			} else
-				key = generateRandom(1, 1000000);
+				else
+					key = generateRandom(1, 100000);
+			} 
 		}
 
 		if (player == null) {
@@ -166,12 +170,13 @@ public class Fornite {
 	}
 
 	public Player addLowerLevel(Player medium, HashTable<Integer, Player> hashTable) {
+		System.out.println("sss"+medium.getSkill());
 
 		int x = 50;
 		int conta = 0;
 		Player n = null;
 		
-		System.out.println("sss"+medium.getSkill());
+		
 
 		if (medium.getSkill() <= 50) {
 			System.out.println("YYY");
@@ -207,12 +212,15 @@ public class Fornite {
 			
 			if (key <= AMOUNT_TABLE) {
 				HashNode<Integer, Player> player = hashTable.getHashTable()[key];
+				System.out.println("WWW");
 
 				if (player != null && player.getValue().getSkill() >= min && player.getValue().getSkill() <= max) {
 					n = true;
 					System.out.println("first");
 					player1 = player.getValue();
 				}
+				
+				key = hashTable.getSlot(generateRandom(min, max), 1, 1);
 			}
 			key = hashTable.getSlot(generateRandom(min, max), 1, 1);
 		}
@@ -355,15 +363,18 @@ public class Fornite {
 		f.readPlayers();
 		
 		HashTable<Integer, Player> m= null;
+		System.out.println("jjj");
 		m=f.mostrarTabla();
+		System.out.println("6666");
 		Player pl = f.addFirstPlayer(m);
+		System.out.println("33333333333");
 		
 
 		System.out.println("Jugador " + pl.getSkill());
 		System.out.println(pl.getSkill());
 		
 		f.addLowerLevel(pl, m);
-		System.out.println(f.getMyQueue().getBack().getValue().getSkill());
+//		System.out.println(f.getMyQueue().getBack().getValue().getSkill());
 
 //		System.out.println(f.searchTable(f.getConsoleTable(), 610997).getName());
 
