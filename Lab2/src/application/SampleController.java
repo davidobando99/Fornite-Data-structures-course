@@ -91,8 +91,8 @@ public class SampleController {
 	@FXML
 	void actionButCell(ActionEvent event) {
 		ArrayList<Player> abc = fr.listPlayers();
-		abc.add(new Player("Douglas", 0, "", 0, 0, " ", null));
-		abc.add(new Player("El papacito", 0, "", 0, 0, " ", null));
+		abc.add(new Player("Jugador1", 0, "", 0, 0, " ", null));
+		abc.add(new Player("Jugador2", 0, "", 0, 0, " ", null));
 
 		ObservableList<Player> gg = FXCollections.observableArrayList();
 
@@ -106,8 +106,8 @@ public class SampleController {
 	@FXML
 	void actionButConsole(ActionEvent event) {
 		ArrayList<Player> abc = fr.listPlayers();
-		abc.add(new Player("Laura y Huertas", 0, "", 0, 0, " ", null));
-		abc.add(new Player("Juntos x 100 pre", 0, "", 0, 0, " ", null));
+		abc.add(new Player("Jugador3", 0, "", 0, 0, " ", null));
+		abc.add(new Player("Jugador4", 0, "", 0, 0, " ", null));
 
 		ObservableList<Player> gg = FXCollections.observableArrayList();
 
@@ -121,8 +121,8 @@ public class SampleController {
 	@FXML
 	void actionButPC(ActionEvent event) {
 		ArrayList<Player> abc = fr.listPlayers();
-		abc.add(new Player("David Obando y Ruby", 0, "", 0, 0, " ", null));
-		abc.add(new Player("Juntos x 100 pre", 0, "", 0, 0, " ", null));
+		abc.add(new Player("Jugador5", 0, "", 0, 0, " ", null));
+		abc.add(new Player("Jugador6", 0, "", 0, 0, " ", null));
 
 		ObservableList<Player> gg = FXCollections.observableArrayList();
 
@@ -132,7 +132,5 @@ public class SampleController {
 
 		listPC.setItems(gg);
 	}
-	
-	
 
 }
