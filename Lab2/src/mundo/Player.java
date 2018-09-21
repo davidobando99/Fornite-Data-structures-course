@@ -168,8 +168,9 @@ public class Player {
 		weaponStack.push(newWeapon);
 	}
 	
-	public void empty() {
-		
+	public void addLoveGun(Weapon newWeapon) {
+		weaponStack.push(newWeapon);
+	
 	}
 	
 	@Override 
