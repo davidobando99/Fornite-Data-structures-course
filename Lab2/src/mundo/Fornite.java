@@ -139,18 +139,29 @@ public class Fornite {
 		Player player = null;
 		boolean cond = false;
 
-		while (!cond) {
-			if (hashTable.getHashTable()[key] != null) {
+		try {
+			while (!cond) {
+				
+				if (hashTable.getHashTable()[key].getValue() != null) {
+					
+					System.out.println("This");
 
-				if (hashTable.getHashTable()[key].getValue().getSkill() > 5) {
-					cond = true;
-					player = hashTable.getHashTable()[key].getValue();
-				}
+					if (hashTable.getHashTable()[key].getValue().getSkill() > 5) {
+						
+						player = hashTable.getHashTable()[key].getValue();
+						myQueue.enqueue(player);
+						cond = true;
+					}
 
-			} else
-				key = generateRandom(1, 1000000);
+				} else
+					key = generateRandom(1, 1000000);
+			}
+			
+			
+		} catch (Exception e) {
+			key = generateRandom(1, 1000000);
 		}
-		
+	
 		return player;
 
 	}
@@ -166,7 +177,9 @@ public class Fornite {
 		}
 		int key = generateRandom(medium.getSkill() - x, medium.getSkill());
 
+//		myQueue.enqueue(me);
 		while (conta <= 50) {
+			System.out.println("Conta " +conta);
 			n = newPlayerHash(key, medium.getSkill() - x, medium.getSkill(), hashTable);
 			myQueue.enqueue(n);
 			conta++;
@@ -324,7 +337,11 @@ public class Fornite {
 	public static void main(String[] args) {
 		Fornite f = new Fornite();
 		f.readPlayers();
-		System.out.println(f.searchTable(f.getConsoleTable(), 610997).getName());
+//		Player pl=f.addFirstPlayer(f.mostrarTabla());
+		System.out.println(f.mostrarTabla().getSizeTable());
+//		System.out.println(pl.getSkill());
+
+//		System.out.println(f.searchTable(f.getConsoleTable(), 610997).getName());
 
 	}
 

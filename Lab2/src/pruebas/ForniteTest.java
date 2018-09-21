@@ -105,21 +105,27 @@ class ForniteTest {
 	public void addFirstPlayerTest() {
 		setUp();
 		
-		fornite.addFirstPlayer(fornite.mostrarTabla());
 		
+//		System.out.println(fornite.addFirstPlayer(fornite.mostrarTabla()).getName());
 		assertTrue(!fornite.getPcTable().isEmpty()|| !fornite.getConsoleTable().isEmpty()||!fornite.getPhoneTable().isEmpty());
 		
 	}
-	public void addLowerLevelTest() {
-		setUp();
-		
-		IHashTable<Integer, Player> m= null;
-		m=fornite.mostrarTabla();
-		fornite.addFirstPlayer(m);
-		
-		
-		
-	}
+//	@Test
+//	public void addLowerLevelTest() {
+//		setUp();
+//		
+//		HashTable<Integer, Player> m= null;
+//		m=fornite.mostrarTabla();
+//		Player player=fornite.addFirstPlayer(m);
+//		System.out.println("First player " +player.getSkill());
+//		fornite.addLowerLevel(player, m);
+//		
+//		assertTrue(fornite.getMyQueue().getBack().getValue().getSkill()<=player.getSkill());
+//		
+//		
+//		
+//		
+//	}
 	
 	
 
