@@ -346,6 +346,7 @@ public class Fornite {
 	}
 
 	public ArrayList<Player> listPlayers() {
+		addHighLevel(addFirstPlayer(mostrarTabla()), mostrarTabla());
 
 		ArrayList<Player> py = new ArrayList<Player>();
 
@@ -358,24 +359,6 @@ public class Fornite {
 		return py;
 	}
 
-	public static void main(String[] args) {
-		Fornite f = new Fornite();
-		f.readPlayers();
-		
-		HashTable<Integer, Player> m= null;
-		m=f.mostrarTabla();
-		Player pl = f.addFirstPlayer(m);
-		System.out.println("33333333333");
-		
 
-		System.out.println("Jugador " + pl.getSkill());
-		System.out.println(pl.getSkill());
-		
-		f.addLowerLevel(pl, m);
-//		System.out.println(f.getMyQueue().getBack().getValue().getSkill());
-
-//		System.out.println(f.searchTable(f.getConsoleTable(), 610997).getName());
-
-	}
 
 }
